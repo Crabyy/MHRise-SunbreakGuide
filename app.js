@@ -510,4 +510,21 @@ themeToggle.addEventListener('click', () => {
 const versionEl = document.querySelector('#appVersion');
 if (versionEl && changelog[0]) versionEl.textContent = changelog[0].version;
 
+const navToggle = document.querySelector('#navToggle');
+const navBackdrop = document.querySelector('#navBackdrop');
+
+function setNavOpen(open) {
+  document.body.classList.toggle('nav-open', open);
+  navBackdrop.hidden = !open;
+  navToggle.setAttribute('aria-expanded', String(open));
+}
+
+navToggle.addEventListener('click', () => {
+  setNavOpen(!document.body.classList.contains('nav-open'));
+});
+navBackdrop.addEventListener('click', () => setNavOpen(false));
+document.querySelector('.sidebar').addEventListener('click', event => {
+  if (event.target.closest('.weapon-tab')) setNavOpen(false);
+});
+
 render();

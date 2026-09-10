@@ -1,6 +1,6 @@
 # MHRise: Sunbreak Guide
 
-**Version: v0.16** · Author: [Craby](https://github.com/Crabyy)
+**Version: v0.17** · Author: [Craby](https://github.com/Crabyy)
 
 A personal Monster Hunter Rise: Sunbreak reference web app. It answers two questions fast:
 
@@ -47,6 +47,13 @@ python -m http.server 8613
 Deployed on **Vercel** from this repository: framework preset **Other**, no build command, output directory = repo root. Every push to `main` auto-deploys.
 
 ## Changelog
+
+### v0.17
+- Mobile navigation redesigned as a hamburger menu: a compact top bar with a menu button opens the full sidebar as a slide-in drawer with backdrop; tapping a section or the backdrop closes it. (Previously the nav sections scrolled horizontally with no visual hint, so Afflicted Materials and Changelog were undiscoverable on phones.)
+- Fixed layouts breaking on mid-size displays: between ~900–1120px (small laptops, landscape tablets) the fixed 350px monster list plus the sidebar crushed the matchup card. The layout now stacks into one column with a two-column monster list at those widths.
+- Sidebar slims from 232px to 204px below 1280px viewports.
+- The monster/material list height now adapts to the window height instead of a fixed 600px.
+- Page headings wrap instead of squeezing the search toolbar; the material pin bar wraps on narrow screens.
 
 ### v0.16
 - In-app changelog page (**App → Changelog** in the sidebar), driven by `data/changelog-data.js`; the footer version number now reads from it automatically.

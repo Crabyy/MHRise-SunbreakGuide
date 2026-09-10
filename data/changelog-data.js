@@ -1,5 +1,13 @@
 window.APP_CHANGELOG = [
   {
+    "version": "v0.17",
+    "changes": [
+      "New hamburger menu on mobile devices.",
+      "Fixed layouts breaking on phones and mid-size displays.",
+      "Small changes."
+    ]
+  },
+  {
     "version": "v0.16",
     "changes": [
       "Added this in-app changelog page.",
