@@ -1838,7 +1838,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Foreleg"
         }
@@ -1925,7 +1924,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Water",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Water LBG fallback.",
           "rampage": "Anti-Wyvern",
           "targets": "Broken Abdomen, heated Head, heated Back"
         }
@@ -2070,7 +2068,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Icecloak Bowgun",
           "ammo": "RF Piercing Ice",
           "handling": "Recoil Down 1 / Reload Speed 3 / Steadiness 2",
-          "note": "Dragon-primary: use Ice LBG fallback.",
           "rampage": "Elembane",
           "targets": "Abdomen, Head, Tail Tip, Wingarm, Chest, Back"
         }
@@ -2128,7 +2125,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Thunder",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Thunder LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Wing, Tail"
         }
