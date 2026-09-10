@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Monster Hunter Rise: Sunbreak matchup reference for Dual Blades, Spread Bow, and rapid-fire elemental Light Bowgun." />
+  <title>MHRise: Sunbreak Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand" aria-label="Sunbreak Matchups">
+      <span class="brand-mark">SM</span>
+      <span class="brand-copy">
+        <strong>MHRise: Sunbreak Guide</strong>
+        <small>A guide that might help :P</small>
+      </span>
+    </div>
+
+    <nav class="nav-groups" aria-label="Sections">
+      <div class="nav-group">
+        <span class="nav-label">Weapon</span>
+        <div class="weapon-switch" id="weaponSwitch" aria-label="Weapon type"></div>
+      </div>
+      <div class="nav-group">
+        <span class="nav-label">Monster Materials</span>
+        <div class="weapon-switch" id="materialsSwitch"></div>
+      </div>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" type="button">Dark mode</button>
+  </aside>
+
+  <div class="main-col">
+    <main id="app" class="app-shell"></main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Author: <a href="https://github.com/Crabyy" target="_blank" rel="noopener">Craby</a></span>
+        <span>v0.15 &middot; <a href="https://github.com/Crabyy/MHRise-SunbreakGuide" target="_blank" rel="noopener">Source on GitHub</a></span>
+        <span>Monster Hunter Rise: Sunbreak &copy; Capcom &middot; Unofficial fan reference</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="data/game-data.js"></script>
+  <script src="data/materials-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
