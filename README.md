@@ -61,6 +61,7 @@ Deployed on **Vercel** from this repository: framework preset **Other**, no buil
 - Removed Monster Drops pinning, redundant rank notes, and afflicted/anomaly investigation materials from Monster Drops. Checklist tracking and afflicted materials stay in the **Afflicted Materials** tab.
 - Shortened the Monster Drops monster list panel for easier scanning.
 - Updated the Home creator credit from "By: Craby" to a cleaner "Made by Craby" line.
+- Small changes.
 
 ### v1.19
 - New **Monster Drops** page under Monster Materials (alongside Afflicted Materials).

@@ -6,7 +6,8 @@ window.APP_CHANGELOG = [
       "Ctrl/Cmd+F now focuses the current page's search bar when one is available.",
       "Fixed Monster Drops search so material searches respect the selected rank and no longer fall back to the default monster.",
       "Removed pinning, redundant notes, and afflicted/anomaly investigation materials from Monster Drops; those stay handled by Afflicted Materials.",
-      "Shortened the Monster Drops monster list so the page is easier to scan."
+      "Shortened the Monster Drops monster list so the page is easier to scan.",
+      "Small changes."
     ]
   },
   {
