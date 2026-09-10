@@ -2,8 +2,10 @@ const data = window.SUNBREAK_DATA;
 const app = document.querySelector('#app');
 const weaponSwitch = document.querySelector('#weaponSwitch');
 const materialsSwitch = document.querySelector('#materialsSwitch');
+const changelogSwitch = document.querySelector('#changelogSwitch');
 const themeToggle = document.querySelector('#themeToggle');
 const materials = window.afflictedMaterials || [];
+const changelog = window.APP_CHANGELOG || [];
 let currentView = 'matchups';
 
 const validWeapons = new Set(data.weapons.map(w => w.id));
@@ -58,6 +60,7 @@ function renderWeaponSwitch() {
   `).join('');
 
   materialsSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'materials' ? 'active' : ''}" id="materialsTab">Afflicted</button>`;
+  changelogSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'changelog' ? 'active' : ''}" id="changelogTab">Changelog</button>`;
   weaponSwitch.querySelectorAll('[data-weapon]').forEach(button => {
     button.addEventListener('click', () => {
       currentView = 'matchups';
@@ -69,6 +72,10 @@ function renderWeaponSwitch() {
   });
   document.querySelector('#materialsTab')?.addEventListener('click', () => {
     currentView = 'materials';
+    render();
+  });
+  document.querySelector('#changelogTab')?.addEventListener('click', () => {
+    currentView = 'changelog';
     render();
   });
 }
@@ -95,6 +102,10 @@ function render() {
   renderWeaponSwitch();
   if (currentView === 'materials') {
     renderMaterials();
+    return;
+  }
+  if (currentView === 'changelog') {
+    renderChangelog();
     return;
   }
 
@@ -457,6 +468,30 @@ function materialCard(material) {
   `;
 }
 
+function renderChangelog() {
+  app.innerHTML = `
+    <section class="page-heading">
+      <div>
+        <span class="eyebrow">App</span>
+        <h1>Changelog</h1>
+      </div>
+    </section>
+    <section class="changelog">
+      ${changelog.map((entry, index) => `
+        <article class="log-entry">
+          <div class="log-version">
+            <strong>${escapeHtml(entry.version)}</strong>
+            ${index === 0 ? '<span class="log-tag">Current</span>' : ''}
+          </div>
+          <ul class="log-list">
+            ${entry.changes.map(change => `<li>${escapeHtml(change)}</li>`).join('')}
+          </ul>
+        </article>
+      `).join('')}
+    </section>
+  `;
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   themeToggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
@@ -471,5 +506,8 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('shg_theme', theme);
   applyTheme(theme);
 });
+
+const versionEl = document.querySelector('#appVersion');
+if (versionEl && changelog[0]) versionEl.textContent = changelog[0].version;
 
 render();

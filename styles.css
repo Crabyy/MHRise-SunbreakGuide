@@ -468,6 +468,51 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 .element-ice, .element-text-ice { color: #1f7085; }
 .element-dragon, .element-text-dragon { color: #64398f; }
 
+/* ---------- Changelog ---------- */
+
+.changelog { max-width: 760px; }
+.log-entry {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.log-entry:last-child { border-bottom: 0; }
+.log-version strong { display: block; font-size: 15px; font-weight: 600; }
+.log-tag {
+  display: inline-block;
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent-ink);
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-line);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+.log-list { margin: 1px 0 0; padding: 0; list-style: none; }
+.log-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.log-list li + li { margin-top: 7px; }
+.log-list li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: .62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 /* ---------- Pinned materials ---------- */
 
 .pin-amount {
@@ -622,4 +667,6 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   .verdict { text-align: left; }
   .matchup-grid { grid-template-columns: 1fr; }
   .stat.wide { grid-column: auto; }
+  .log-entry { grid-template-columns: 1fr; gap: 10px; }
+  .log-tag { margin: 0 0 0 8px; }
 }
