@@ -6,22 +6,32 @@ const changelogSwitch = document.querySelector('#changelogSwitch');
 const themeToggle = document.querySelector('#themeToggle');
 const materials = window.afflictedMaterials || [];
 const changelog = window.APP_CHANGELOG || [];
-let currentView = 'matchups';
+const savedView = localStorage.getItem('shg_view');
+let currentView = ['matchups', 'materials', 'changelog'].includes(savedView) ? savedView : 'matchups';
+
+function setView(view) {
+  currentView = view;
+  localStorage.setItem('shg_view', view);
+}
 
 const validWeapons = new Set(data.weapons.map(w => w.id));
 const savedWeapon = localStorage.getItem('shg_weapon');
 const savedMonster = localStorage.getItem('shg_monster');
+const savedElement = localStorage.getItem('shg_element');
+const savedTier = localStorage.getItem('shg_tier');
+const savedMaterial = localStorage.getItem('shg_material');
 
 const state = {
   weapon: validWeapons.has(savedWeapon) ? savedWeapon : 'dual-blades',
   monster: data.monsters.some(m => m.id === savedMonster) ? savedMonster : 'primordial-malzeno',
   search: '',
-  element: 'All',
+  element: ['Fire', 'Water', 'Thunder', 'Ice', 'Dragon'].includes(savedElement) ? savedElement : 'All',
   materialSearch: '',
-  materialTier: 'All',
+  materialTier: /^A[1-9]$/.test(savedTier || '') ? savedTier : 'All',
   selectedMaterialName: null,
   pins: loadPins()
 };
+state.selectedMaterialName = materials.some(m => m.material === savedMaterial) ? savedMaterial : null;
 
 function loadPins() {
   try {
@@ -63,19 +73,20 @@ function renderWeaponSwitch() {
   changelogSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'changelog' ? 'active' : ''}" id="changelogTab">Changelog</button>`;
   weaponSwitch.querySelectorAll('[data-weapon]').forEach(button => {
     button.addEventListener('click', () => {
-      currentView = 'matchups';
+      setView('matchups');
       state.weapon = button.dataset.weapon;
       state.element = 'All';
+      localStorage.setItem('shg_element', state.element);
       localStorage.setItem('shg_weapon', state.weapon);
       render();
     });
   });
   document.querySelector('#materialsTab')?.addEventListener('click', () => {
-    currentView = 'materials';
+    setView('materials');
     render();
   });
   document.querySelector('#changelogTab')?.addEventListener('click', () => {
-    currentView = 'changelog';
+    setView('changelog');
     render();
   });
 }
@@ -155,6 +166,7 @@ function render() {
 
   document.querySelector('#elementFilter').addEventListener('change', event => {
     state.element = event.target.value;
+    localStorage.setItem('shg_element', state.element);
     ensureSelectedMonsterMatchesFilter();
     render();
   });
@@ -318,6 +330,7 @@ function renderMaterials() {
   const filtered = materialsFiltered();
   const selected = materials.find(m => m.material === state.selectedMaterialName) || filtered[0];
   state.selectedMaterialName = selected ? selected.material : null;
+  if (state.selectedMaterialName) localStorage.setItem('shg_material', state.selectedMaterialName);
   const pinned = materials.filter(m => state.pins[m.material]);
   const prevScroll = document.querySelector('#materialList')?.scrollTop || 0;
 
@@ -356,6 +369,7 @@ function renderMaterials() {
   });
   document.querySelectorAll('[data-tier]').forEach(b=>b.addEventListener('click',()=>{
     state.materialTier=b.dataset.tier;
+    localStorage.setItem('shg_tier', state.materialTier);
     state.selectedMaterialName=null;
     renderMaterials();
   }));
@@ -376,6 +390,7 @@ function renderMaterialListOnly() {
 function wireMaterialRows(scope) {
   scope.querySelectorAll('[data-material-name]').forEach(b=>b.addEventListener('click',()=>{
     state.selectedMaterialName=b.dataset.materialName;
+    localStorage.setItem('shg_material', state.selectedMaterialName);
     const chosen = materials.find(m => m.material === state.selectedMaterialName);
     document.querySelectorAll('[data-material-name]').forEach(item=>{
       item.classList.toggle('active', item.dataset.materialName===state.selectedMaterialName);

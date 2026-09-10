@@ -1,5 +1,11 @@
 window.APP_CHANGELOG = [
   {
+    "version": "v0.18",
+    "changes": [
+      "The app now stays where you were after a refresh (section, selection, and filters are remembered)."
+    ]
+  },
+  {
     "version": "v0.17",
     "changes": [
       "New hamburger menu on mobile devices.",
