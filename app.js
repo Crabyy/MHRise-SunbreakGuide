@@ -294,14 +294,19 @@ function escapeHtml(value = '') {
 }
 
 
-function renderMaterials() {
+function materialsFiltered() {
   const query = (state.materialSearch || '').toLowerCase();
-  const filtered = materials.filter(m => {
+  return materials.filter(m => {
     if (state.pins[m.material]) return false;
     const text = Object.values(m).join(' ').toLowerCase();
     return (!query || text.includes(query)) && (state.materialTier === 'All' || m.tier === state.materialTier);
   });
+}
+
+function renderMaterials() {
+  const filtered = materialsFiltered();
   const selected = materials.find(m => m.material === state.selectedMaterialName) || filtered[0];
+  state.selectedMaterialName = selected ? selected.material : null;
   const pinned = materials.filter(m => state.pins[m.material]);
   const prevScroll = document.querySelector('#materialList')?.scrollTop || 0;
 
@@ -336,15 +341,29 @@ function renderMaterials() {
 
   document.querySelector('#materialSearch').addEventListener('input', e => {
     state.materialSearch=e.target.value;
-    state.selectedMaterialName=null;
-    renderMaterials();
+    renderMaterialListOnly();
   });
   document.querySelectorAll('[data-tier]').forEach(b=>b.addEventListener('click',()=>{
     state.materialTier=b.dataset.tier;
     state.selectedMaterialName=null;
     renderMaterials();
   }));
-  document.querySelectorAll('[data-material-name]').forEach(b=>b.addEventListener('click',()=>{
+  wireMaterialRows(document);
+
+  if (selected) wirePinControls(selected);
+}
+
+function renderMaterialListOnly() {
+  const list = document.querySelector('#materialList');
+  if (!list) return;
+  const filtered = materialsFiltered();
+  const selected = materials.find(m => m.material === state.selectedMaterialName);
+  list.innerHTML = filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList();
+  wireMaterialRows(list);
+}
+
+function wireMaterialRows(scope) {
+  scope.querySelectorAll('[data-material-name]').forEach(b=>b.addEventListener('click',()=>{
     state.selectedMaterialName=b.dataset.materialName;
     const chosen = materials.find(m => m.material === state.selectedMaterialName);
     document.querySelectorAll('[data-material-name]').forEach(item=>{
@@ -353,8 +372,6 @@ function renderMaterials() {
     document.querySelector('#materialResult').innerHTML = chosen ? materialCard(chosen) : '';
     if (chosen) wirePinControls(chosen);
   }));
-
-  if (selected) wirePinControls(selected);
 }
 
 function materialRow(material, selected) {
