@@ -7,7 +7,8 @@ window.APP_CHANGELOG = [
       "Fixed Monster Drops search so material searches respect the selected rank and no longer fall back to the default monster.",
       "Removed pinning, redundant notes, and afflicted/anomaly investigation materials from Monster Drops; those stay handled by Afflicted Materials.",
       "Shortened the Monster Drops monster list so the page is easier to scan.",
-      "Small changes."
+      "Small changes.",
+      "[Small bug in 'Monster Drops' tab where it gets squished in mobile view, or other small display devices fixing it in the near future]"
     ]
   },
   {
