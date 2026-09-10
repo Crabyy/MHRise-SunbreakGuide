@@ -1866,7 +1866,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Thunder",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Thunder LBG fallback.",
           "rampage": "Anti-Aerial",
           "targets": "Head, enraged Neck, Tail"
         }
@@ -1895,7 +1894,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Thunder",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Thunder LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Tail"
         }
@@ -1952,7 +1950,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Anti-Aerial",
           "targets": "Head, Antenna, Tail, Foreleg, Neck"
         }
@@ -1981,7 +1978,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Thunder",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Thunder LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Tail Tip"
         }
@@ -2010,7 +2006,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Tail, Neck"
         }
@@ -2039,7 +2034,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Forelegs, bloodening Tail Tip"
         }
@@ -2096,7 +2090,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Forelegs, bloodening Tail Tip"
         }
@@ -2153,7 +2146,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Wicked Needle",
           "ammo": "RF Piercing Thunder",
           "handling": "Recoil Down 1 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Thunder LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Wing, Tail"
         }
@@ -2182,7 +2174,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Neck"
         }
@@ -2211,7 +2202,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Head, Neck"
         }
@@ -2240,7 +2230,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Icecloak Bowgun",
           "ammo": "RF Piercing Ice",
           "handling": "Recoil Down 1 / Reload Speed 3 / Steadiness 2",
-          "note": "Dragon-primary: use Ice LBG fallback.",
           "rampage": "Elembane",
           "targets": "Chest when exposed/charged, Head, Wingarms, Tail"
         }
@@ -2269,7 +2258,6 @@ window.SUNBREAK_DATA = {
           "weapon": "Pure Bowgun Yao",
           "ammo": "RF Piercing Fire",
           "handling": "Recoil Down 2 / Reload Speed 1 / Steadiness 1",
-          "note": "Dragon-primary: use Fire LBG fallback.",
           "rampage": "Elembane",
           "targets": "Chest, Head, Wingarm, Back, Tail Tip"
         }
