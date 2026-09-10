@@ -59,7 +59,7 @@ function renderWeaponSwitch() {
     <button class="weapon-tab ${currentView === 'matchups' && weapon.id === state.weapon ? 'active' : ''}" data-weapon="${weapon.id}">${weapon.name}</button>
   `).join('');
 
-  materialsSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'materials' ? 'active' : ''}" id="materialsTab">Afflicted</button>`;
+  materialsSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'materials' ? 'active' : ''}" id="materialsTab">Afflicted Materials</button>`;
   changelogSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'changelog' ? 'active' : ''}" id="changelogTab">Changelog</button>`;
   weaponSwitch.querySelectorAll('[data-weapon]').forEach(button => {
     button.addEventListener('click', () => {
