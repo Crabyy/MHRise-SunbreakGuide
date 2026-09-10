@@ -345,18 +345,22 @@ function renderMaterials() {
     <div class="tier-filter">${['All','A1','A2','A3','A4','A5','A6','A7','A8','A9'].map(t=>`<button class="${state.materialTier===t?'active':''}" data-tier="${t}">${t}</button>`).join('')}</div>
     <section class="matchup-layout">
       <aside class="monster-panel">
-        ${pinned.length ? `
-        <div class="list-meta"><strong>Pinned</strong><strong>${pinned.length}</strong></div>
-        <div class="pinned-list">
-          ${pinned.map(m => materialRow(m, selected)).join('')}
-        </div>` : ''}
         <div class="list-meta"><strong>Material</strong></div>
         <div class="monster-list" id="materialList">
           ${filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList()}
         </div>
       </aside>
-      <section id="materialResult">
-        ${selected ? materialCard(selected) : emptyList()}
+      <section class="result-col">
+        <div id="materialResult">
+          ${selected ? materialCard(selected) : emptyList()}
+        </div>
+        ${pinned.length ? `
+        <aside class="monster-panel pinned-panel">
+          <div class="list-meta"><strong>Pinned</strong><strong>${pinned.length}</strong></div>
+          <div class="pinned-list">
+            ${pinned.map(m => materialRow(m, selected)).join('')}
+          </div>
+        </aside>` : ''}
       </section>
     </section>`;
 

@@ -50,6 +50,7 @@ Deployed on **Vercel** from this repository: framework preset **Other**, no buil
 
 ### v0.18
 - Refreshing the page no longer jumps back to Monster Matchups: the current section (Matchups / Afflicted Materials / Changelog), the selected material, the element filter, and the tier filter are all saved in localStorage and restored on load. (Weapon, selected monster, pins, and theme were already persisted.)
+- The Pinned section moved from the top of the material list to the right column below the material details, using the previously empty space.
 
 ### v0.17
 - Mobile navigation redesigned as a hamburger menu: a compact top bar with a menu button opens the full sidebar as a slide-in drawer with backdrop; tapping a section or the backdrop closes it. (Previously the nav sections scrolled horizontally with no visual hint, so Afflicted Materials and Changelog were undiscoverable on phones.)

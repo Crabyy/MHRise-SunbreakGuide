@@ -559,6 +559,13 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 
 /* ---------- Pinned materials ---------- */
 
+.result-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
 .pin-amount {
   flex: 0 0 auto;
   font-size: 11px;
