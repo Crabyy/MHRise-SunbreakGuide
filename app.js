@@ -1,13 +1,15 @@
 const data = window.SUNBREAK_DATA;
 const app = document.querySelector('#app');
+const homeSwitch = document.querySelector('#homeSwitch');
 const weaponSwitch = document.querySelector('#weaponSwitch');
 const materialsSwitch = document.querySelector('#materialsSwitch');
 const changelogSwitch = document.querySelector('#changelogSwitch');
 const themeToggle = document.querySelector('#themeToggle');
 const materials = window.afflictedMaterials || [];
 const changelog = window.APP_CHANGELOG || [];
+const drops = (window.MONSTER_DROPS || []).slice().sort((a, b) => a.name.localeCompare(b.name));
 const savedView = localStorage.getItem('shg_view');
-let currentView = ['matchups', 'materials', 'changelog'].includes(savedView) ? savedView : 'matchups';
+let currentView = ['home', 'matchups', 'materials', 'changelog', 'drops'].includes(savedView) ? savedView : 'home';
 
 function setView(view) {
   currentView = view;
@@ -20,6 +22,8 @@ const savedMonster = localStorage.getItem('shg_monster');
 const savedElement = localStorage.getItem('shg_element');
 const savedTier = localStorage.getItem('shg_tier');
 const savedMaterial = localStorage.getItem('shg_material');
+const savedDropMonster = localStorage.getItem('shg_dropMonster');
+const savedDropRank = localStorage.getItem('shg_dropRankFilter');
 
 const state = {
   weapon: validWeapons.has(savedWeapon) ? savedWeapon : 'dual-blades',
@@ -29,9 +33,13 @@ const state = {
   materialSearch: '',
   materialTier: /^A[1-9]$/.test(savedTier || '') ? savedTier : 'All',
   selectedMaterialName: null,
+  dropsSearch: '',
+  selectedDropId: null,
+  dropRankFilter: ['lowRank', 'highRank', 'masterRank'].includes(savedDropRank) ? savedDropRank : 'lowRank',
   pins: loadPins()
 };
 state.selectedMaterialName = materials.some(m => m.material === savedMaterial) ? savedMaterial : null;
+state.selectedDropId = drops.some(m => m.id === savedDropMonster) ? savedDropMonster : null;
 
 function loadPins() {
   try {
@@ -65,12 +73,21 @@ function elementOptions() {
 }
 
 function renderWeaponSwitch() {
+  homeSwitch.innerHTML = `
+    <button class="weapon-tab ${currentView === 'home' ? 'active' : ''}" id="homeTab">Home</button>
+  `;
+
   weaponSwitch.innerHTML = data.weapons.map(weapon => `
     <button class="weapon-tab ${currentView === 'matchups' && weapon.id === state.weapon ? 'active' : ''}" data-weapon="${weapon.id}">${weapon.name}</button>
   `).join('');
 
-  materialsSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'materials' ? 'active' : ''}" id="materialsTab">Afflicted Materials</button>`;
-  changelogSwitch.innerHTML = `<button class="weapon-tab ${currentView === 'changelog' ? 'active' : ''}" id="changelogTab">Changelog</button>`;
+  materialsSwitch.innerHTML = `
+    <button class="weapon-tab ${currentView === 'drops' ? 'active' : ''}" id="dropsTab">Monster Drops</button>
+    <button class="weapon-tab ${currentView === 'materials' ? 'active' : ''}" id="materialsTab">Afflicted Materials</button>
+  `;
+  changelogSwitch.innerHTML = `
+    <button class="weapon-tab ${currentView === 'changelog' ? 'active' : ''}" id="changelogTab">Changelog</button>
+  `;
   weaponSwitch.querySelectorAll('[data-weapon]').forEach(button => {
     button.addEventListener('click', () => {
       setView('matchups');
@@ -83,6 +100,14 @@ function renderWeaponSwitch() {
   });
   document.querySelector('#materialsTab')?.addEventListener('click', () => {
     setView('materials');
+    render();
+  });
+  document.querySelector('#dropsTab')?.addEventListener('click', () => {
+    setView('drops');
+    render();
+  });
+  document.querySelector('#homeTab')?.addEventListener('click', () => {
+    setView('home');
     render();
   });
   document.querySelector('#changelogTab')?.addEventListener('click', () => {
@@ -111,6 +136,10 @@ function filteredMonsters() {
 
 function render() {
   renderWeaponSwitch();
+  if (currentView === 'home') {
+    renderHome();
+    return;
+  }
   if (currentView === 'materials') {
     renderMaterials();
     return;
@@ -119,12 +148,19 @@ function render() {
     renderChangelog();
     return;
   }
+  if (currentView === 'drops') {
+    renderDrops();
+    return;
+  }
 
   const weapon = currentWeapon();
-  const monster = findMonster();
-  const matchup = matchupFor(monster);
   const filtered = filteredMonsters();
+  const monster = filtered.find(m => m.id === state.monster) || filtered[0] || null;
+  const matchup = monster ? matchupFor(monster) : null;
   const elements = elementOptions();
+
+  state.monster = monster ? monster.id : null;
+  if (state.monster) localStorage.setItem('shg_monster', state.monster);
 
   if (!elements.includes(state.element)) state.element = 'All';
 
@@ -159,7 +195,7 @@ function render() {
       </aside>
 
       <section id="matchupResult">
-        ${resultCard(monster, matchup)}
+        ${monster && matchup ? resultCard(monster, matchup) : emptyList()}
       </section>
     </section>
   `;
@@ -179,10 +215,26 @@ function render() {
   wireMonsterRows();
 }
 
+function renderHome() {
+  app.innerHTML = `
+    <section class="home-welcome" aria-labelledby="homeTitle">
+      <span class="eyebrow">Welcome</span>
+      <h1 id="homeTitle">Hello hunter.</h1>
+      <p>Welcome to this Monster Hunter Rise: Sunbreak Utility.</p>
+      <p class="home-credit">Made by <a href="https://github.com/Crabyy" target="_blank" rel="noopener">Craby</a></p>
+      <small class="home-disclaimer">Monster Hunter Rise: Sunbreak &copy; Capcom &middot; Unofficial Fan Reference</small>
+    </section>
+  `;
+}
+
 function renderMonsterListOnly() {
   const list = document.querySelector('#monsterList');
   const filtered = filteredMonsters();
+  const selected = filtered.find(m => m.id === state.monster) || filtered[0] || null;
+  state.monster = selected ? selected.id : null;
+  if (state.monster) localStorage.setItem('shg_monster', state.monster);
   list.innerHTML = filtered.length ? filtered.map(monsterRow).join('') : emptyList();
+  document.querySelector('#matchupResult').innerHTML = selected ? resultCard(selected, matchupFor(selected)) : emptyList();
   wireMonsterRows();
 }
 
@@ -303,8 +355,8 @@ function statList(label, value, className = '') {
   `;
 }
 
-function emptyList() {
-  return '<div class="empty"><strong>No matchups found</strong><span>Try a different search or element.</span></div>';
+function emptyList(title = 'No matchups found', message = 'Try a different search or element.') {
+  return `<div class="empty"><strong>${escapeHtml(title)}</strong><span>${escapeHtml(message)}</span></div>`;
 }
 
 function escapeHtml(value = '') {
@@ -317,18 +369,28 @@ function escapeHtml(value = '') {
 }
 
 
-function materialsFiltered() {
+function materialMatchesFilter(material) {
   const query = (state.materialSearch || '').toLowerCase();
+  const text = Object.values(material).join(' ').toLowerCase();
+  return (!query || text.includes(query)) && (state.materialTier === 'All' || material.tier === state.materialTier);
+}
+
+function materialsFiltered() {
   return materials.filter(m => {
     if (state.pins[m.material]) return false;
-    const text = Object.values(m).join(' ').toLowerCase();
-    return (!query || text.includes(query)) && (state.materialTier === 'All' || m.tier === state.materialTier);
+    return materialMatchesFilter(m);
   });
+}
+
+function selectedMaterialFrom(filtered) {
+  const selected = materials.find(m => m.material === state.selectedMaterialName);
+  if (selected && (materialMatchesFilter(selected) || state.pins[selected.material])) return selected;
+  return filtered[0] || null;
 }
 
 function renderMaterials() {
   const filtered = materialsFiltered();
-  const selected = materials.find(m => m.material === state.selectedMaterialName) || filtered[0];
+  const selected = selectedMaterialFrom(filtered);
   state.selectedMaterialName = selected ? selected.material : null;
   if (state.selectedMaterialName) localStorage.setItem('shg_material', state.selectedMaterialName);
   const pinned = materials.filter(m => state.pins[m.material]);
@@ -347,12 +409,12 @@ function renderMaterials() {
       <aside class="monster-panel">
         <div class="list-meta"><strong>Material</strong></div>
         <div class="monster-list" id="materialList">
-          ${filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList()}
+          ${filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList('No materials found', 'Try a different search or tier.')}
         </div>
       </aside>
       <section class="result-col">
         <div id="materialResult">
-          ${selected ? materialCard(selected) : emptyList()}
+          ${selected ? materialCard(selected) : emptyList('No material selected', 'Try a different search or tier.')}
         </div>
         ${pinned.length ? `
         <aside class="monster-panel pinned-panel">
@@ -396,7 +458,7 @@ function renderMaterials() {
       }, 2500);
       return;
     }
-    state.pins = {};
+    materials.forEach(m => delete state.pins[m.material]);
     savePins();
     renderMaterials();
   });
@@ -408,9 +470,13 @@ function renderMaterialListOnly() {
   const list = document.querySelector('#materialList');
   if (!list) return;
   const filtered = materialsFiltered();
-  const selected = materials.find(m => m.material === state.selectedMaterialName);
-  list.innerHTML = filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList();
+  const selected = selectedMaterialFrom(filtered);
+  state.selectedMaterialName = selected ? selected.material : null;
+  if (state.selectedMaterialName) localStorage.setItem('shg_material', state.selectedMaterialName);
+  list.innerHTML = filtered.length ? filtered.map(m => materialRow(m, selected)).join('') : emptyList('No materials found', 'Try a different search or tier.');
+  document.querySelector('#materialResult').innerHTML = selected ? materialCard(selected) : emptyList('No material selected', 'Try a different search or tier.');
   wireMaterialRows(list);
+  if (selected) wirePinControls(selected);
 }
 
 function wireMaterialRows(scope) {
@@ -509,6 +575,216 @@ function materialCard(material) {
   `;
 }
 
+const RANK_LABELS = { lowRank: 'Low Rank', highRank: 'High Rank', masterRank: 'Master Rank' };
+const DROP_SECTION_KEYS = ['target', 'capture', 'carve', 'breaks', 'drops'];
+const AFFLICTED_DROP_NAMES = new Set(materials.map(material => material.material));
+
+function isAfflictedDropEntry(entry) {
+  return AFFLICTED_DROP_NAMES.has(entry.item) ||
+    entry.item.startsWith('Afflicted ') ||
+    String(entry.part || '').toLowerCase().includes('anomaly');
+}
+
+function visibleDropEntries(rankData, key) {
+  return (rankData[key] || []).filter(entry => !isAfflictedDropEntry(entry));
+}
+
+function firstMatchingItem(monster, query, rankFilter = null) {
+  const ranks = rankFilter ? [rankFilter] : monster.order;
+  for (const rank of ranks) {
+    const rankData = monster[rank] || {};
+    for (const key of DROP_SECTION_KEYS) {
+      const hit = visibleDropEntries(rankData, key).find(row => row.item.toLowerCase().includes(query));
+      if (hit) return hit.item;
+    }
+  }
+  return null;
+}
+
+function dropsFiltered() {
+  const query = (state.dropsSearch || '').trim().toLowerCase();
+  return drops.filter(m => {
+    if (!m.order.includes(state.dropRankFilter)) return false;
+    return !query || m.name.toLowerCase().includes(query) || firstMatchingItem(m, query, state.dropRankFilter);
+  });
+}
+
+function ensureSelectedDropMatchesFilter() {
+  const selected = drops.find(m => m.id === state.selectedDropId);
+  if (selected && selected.order.includes(state.dropRankFilter)) return;
+
+  const replacement = drops.find(m => m.order.includes(state.dropRankFilter));
+  if (replacement) {
+    state.selectedDropId = replacement.id;
+    localStorage.setItem('shg_dropMonster', replacement.id);
+  }
+}
+
+function activeDropRank(monster) {
+  return monster.order.includes(state.dropRankFilter) ? state.dropRankFilter : monster.order[0];
+}
+
+function dropsProgressText() {
+  const total = data.monsters.length;
+  if (drops.length >= total) return `${total} of ${total} large monsters added.`;
+  return `${drops.length} of ${total} large monsters added so far - more coming soon.`;
+}
+
+function renderDrops() {
+  const filtered = dropsFiltered();
+  const selected = filtered.find(m => m.id === state.selectedDropId) || filtered[0] || null;
+  state.selectedDropId = selected ? selected.id : null;
+  if (state.selectedDropId) localStorage.setItem('shg_dropMonster', state.selectedDropId);
+  const prevScroll = document.querySelector('#dropsList')?.scrollTop || 0;
+
+  app.innerHTML = `
+    <section class="page-heading">
+      <div>
+        <span class="eyebrow">Hunter's Notes</span>
+        <h1>Monster Drops</h1>
+      </div>
+      <input id="dropsSearch" class="search-input" type="search" placeholder="Search monster or material..." value="${escapeHtml(state.dropsSearch)}">
+    </section>
+    <p class="drops-progress">${dropsProgressText()}</p>
+    <div class="tier-filter">
+      ${['lowRank', 'highRank', 'masterRank'].map(r => `
+        <button class="${state.dropRankFilter === r ? 'active' : ''}" data-drop-rank="${r}">${RANK_LABELS[r]}</button>
+      `).join('')}
+    </div>
+    <section class="matchup-layout">
+      <aside class="monster-panel">
+        <div class="list-meta"><strong>Monster</strong></div>
+        <div class="monster-list" id="dropsList">
+          ${filtered.length ? filtered.map(m => dropMonsterRow(m, selected)).join('') : emptyList('No drops found', 'Try a different search or rank.')}
+        </div>
+      </aside>
+      <section class="result-col">
+        <div id="dropsResult">
+          ${selected ? dropCard(selected) : emptyList('No drops selected', 'Try a different search or rank.')}
+        </div>
+      </section>
+    </section>`;
+
+  const list = document.querySelector('#dropsList');
+  if (list) list.scrollTop = prevScroll;
+
+  document.querySelector('#dropsSearch').addEventListener('input', e => {
+    state.dropsSearch = e.target.value;
+    renderDropsListOnly();
+  });
+  document.querySelectorAll('[data-drop-rank]').forEach(b => b.addEventListener('click', () => {
+    state.dropRankFilter = b.dataset.dropRank;
+    localStorage.setItem('shg_dropRankFilter', state.dropRankFilter);
+    ensureSelectedDropMatchesFilter();
+    renderDrops();
+  }));
+  wireDropRows(document);
+}
+
+function renderDropsListOnly() {
+  const list = document.querySelector('#dropsList');
+  if (!list) return;
+  const filtered = dropsFiltered();
+  const selected = filtered.find(m => m.id === state.selectedDropId) || filtered[0] || null;
+  state.selectedDropId = selected ? selected.id : null;
+  if (state.selectedDropId) localStorage.setItem('shg_dropMonster', state.selectedDropId);
+  list.innerHTML = filtered.length ? filtered.map(m => dropMonsterRow(m, selected)).join('') : emptyList('No drops found', 'Try a different search or rank.');
+  document.querySelector('#dropsResult').innerHTML = selected ? dropCard(selected) : emptyList('No drops selected', 'Try a different search or rank.');
+  wireDropRows(list);
+}
+
+function wireDropRows(scope) {
+  scope.querySelectorAll('[data-drop-id]').forEach(b => b.addEventListener('click', () => {
+    state.selectedDropId = b.dataset.dropId;
+    localStorage.setItem('shg_dropMonster', state.selectedDropId);
+    const chosen = drops.find(m => m.id === state.selectedDropId);
+    document.querySelectorAll('[data-drop-id]').forEach(item => {
+      item.classList.toggle('active', item.dataset.dropId === state.selectedDropId);
+    });
+    document.querySelector('#dropsResult').innerHTML = chosen ? dropCard(chosen) : '';
+  }));
+}
+
+function dropMonsterRow(monster, selected) {
+  const query = (state.dropsSearch || '').trim().toLowerCase();
+  const nameMatches = !query || monster.name.toLowerCase().includes(query);
+  const matchedItem = !nameMatches ? firstMatchingItem(monster, query, state.dropRankFilter) : null;
+
+  return `
+    <button class="monster-row ${selected && selected.id === monster.id ? 'active' : ''}" data-drop-id="${monster.id}">
+      <span class="monster-copy">
+        <strong>${escapeHtml(monster.name)}</strong>
+        ${matchedItem ? `<small>Drops: ${escapeHtml(matchedItem)}</small>` : ''}
+      </span>
+    </button>
+  `;
+}
+
+const DROP_CATEGORY_LABELS = { target: 'Target', capture: 'Capture', carve: 'Carve', breaks: 'Break', drops: 'Drop' };
+
+function tabularDropData(rankData) {
+  const categories = DROP_SECTION_KEYS.filter(key => visibleDropEntries(rankData, key).length > 0);
+  const byItem = new Map();
+  const order = [];
+  categories.forEach(key => {
+    visibleDropEntries(rankData, key).forEach(entry => {
+      if (!byItem.has(entry.item)) { byItem.set(entry.item, {}); order.push(entry.item); }
+      const cell = byItem.get(entry.item);
+      if (!cell[key]) cell[key] = [];
+      cell[key].push(entry.part ? `${entry.rate} · ${entry.part}` : entry.rate);
+    });
+  });
+  return { categories, rows: order.map(item => ({ item, cells: byItem.get(item) })) };
+}
+
+function dropCard(monster) {
+  const rank = activeDropRank(monster);
+  const { categories, rows } = tabularDropData(monster[rank] || {});
+
+  return `
+    <article class="result-card">
+      <div class="result-hero">
+        <div>
+          <h2>${escapeHtml(monster.name)}</h2>
+          <p>Carve, capture &amp; break rewards</p>
+        </div>
+        <div class="verdict">
+          <small>Showing</small>
+          <strong>${RANK_LABELS[rank]}</strong>
+        </div>
+      </div>
+      ${rows.length ? dropTable(categories, rows) : '<div class="empty"><strong>No reward data yet</strong><span>This rank hasn\'t been added yet.</span></div>'}
+    </article>
+  `;
+}
+
+function dropTable(categories, rows) {
+  return `
+    <div class="drop-table-wrap">
+      <table class="drop-table">
+        <thead>
+          <tr>
+            <th>Material</th>
+            ${categories.map(c => `<th>${DROP_CATEGORY_LABELS[c]}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(row => dropTableRow(row, categories)).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function dropTableRow(row, categories) {
+  return `
+    <tr class="drop-row">
+      <td class="drop-item">${escapeHtml(row.item)}</td>
+      ${categories.map(c => `<td class="drop-cell">${(row.cells[c] || []).map(escapeHtml).join('<br>') || '<span class="drop-empty">&ndash;</span>'}</td>`).join('')}
+    </tr>
+  `;
+}
+
 function renderChangelog() {
   app.innerHTML = `
     <section class="page-heading">
@@ -559,6 +835,21 @@ function setNavOpen(open) {
   navBackdrop.hidden = !open;
   navToggle.setAttribute('aria-expanded', String(open));
 }
+
+function focusCurrentSearch() {
+  const search = app.querySelector('.search-input');
+  if (!search) return false;
+  search.focus();
+  search.select();
+  return true;
+}
+
+document.addEventListener('keydown', event => {
+  const isFindShortcut = (event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'f';
+  if (!isFindShortcut) return;
+  if (!focusCurrentSearch()) return;
+  event.preventDefault();
+});
 
 navToggle.addEventListener('click', () => {
   setNavOpen(!document.body.classList.contains('nav-open'));

@@ -307,6 +307,42 @@ select {
 select:focus, .search-input:focus { border-color: var(--accent); }
 .search-input::placeholder { color: var(--faint); }
 
+/* ---------- Home ---------- */
+
+.home-welcome {
+  min-height: calc(100vh - 210px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+  padding: 40px 0;
+}
+.home-welcome h1 {
+  font-size: 48px;
+  line-height: 1.02;
+}
+.home-welcome p {
+  max-width: 560px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+.home-credit {
+  color: var(--ink);
+}
+.home-credit a {
+  color: var(--accent-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.home-credit a:hover { color: var(--ink); }
+.home-disclaimer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 /* ---------- Two-column layout ---------- */
 
 .matchup-layout {
@@ -340,7 +376,7 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 }
 
 .monster-list {
-  max-height: clamp(360px, calc(100vh - 330px), 680px);
+  max-height: clamp(360px, calc(100vh - 410px), 590px);
   overflow-y: auto;
 }
 
@@ -511,6 +547,54 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 .element-thunder, .element-text-thunder { color: #8a6a00; }
 .element-ice, .element-text-ice { color: #1f7085; }
 .element-dragon, .element-text-dragon { color: #64398f; }
+
+/* ---------- Monster Drops ---------- */
+
+.drops-progress {
+  margin: -12px 0 20px;
+  color: var(--faint);
+  font-size: 12.5px;
+}
+
+.drop-table-wrap { overflow-x: auto; }
+.drop-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.drop-table th {
+  padding: 9px 14px;
+  background: var(--panel-head);
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+.drop-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.drop-table tbody tr:last-child td { border-bottom: 0; }
+.drop-item {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.drop-cell {
+  color: var(--accent-ink);
+  font-weight: 600;
+  line-height: 1.7;
+}
+.drop-empty {
+  color: var(--faint);
+  font-weight: 400;
+}
 
 /* ---------- Changelog ---------- */
 
@@ -727,6 +811,8 @@ select:focus, .search-input:focus { border-color: var(--accent); }
     transform: translateX(0);
     box-shadow: 24px 0 60px rgba(0, 0, 0, .28);
   }
+  .home-welcome { min-height: calc(100vh - 170px); }
+  .home-welcome h1 { font-size: 36px; }
   .page-heading { flex-direction: column; align-items: flex-start; }
   .toolbar { width: 100%; justify-content: flex-start; }
   .search-input { flex: 1; width: auto; min-width: 180px; }

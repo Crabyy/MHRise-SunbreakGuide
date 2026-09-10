@@ -1,23 +1,28 @@
 # MHRise: Sunbreak Guide
 
-**Version: v0.18** · Author: [Craby](https://github.com/Crabyy)
+**Version: v1.20** · Author: [Craby](https://github.com/Crabyy)
 
-A personal Monster Hunter Rise: Sunbreak reference web app. It answers two questions fast:
+A personal Monster Hunter Rise: Sunbreak reference web app. It answers three questions fast:
 
 1. **Monster Matchups** — for a given monster, which weapon build to bring for **Dual Blades**, **Spread Bow**, or **rapid-fire elemental Light Bowgun**: recommended element, weapon, rampage decoration, priority hit zones, and (for LBG) ammo and handling skills.
 2. **Afflicted Materials** — which anomaly materials drop from which monsters, the best farm target for each, and the anomaly level range. Materials can be **pinned** with an "amount needed" counter to use as a farming checklist.
+3. **Monster Drops** — per-monster reward tables (Target/Capture/Carving/Broken Parts merged into one compact list per material) with drop-rate percentages, filterable by Low Rank / High Rank / Master Rank exactly like the Afflicted Materials tier filter. Search by monster *or* material name. **Complete for all 78 large monsters.**
 
 > Monster Hunter Rise: Sunbreak © Capcom. This is an unofficial fan-made reference.
 
 ## Features
 
 - Matchup browser per weapon (Dual Blades / Spread Bow / RF Elemental LBG) with element filter and live search
+- Simple standalone Home page with a short welcome, creator credit, and unofficial fan-reference disclaimer
 - Full matchup detail: recommended weapon, element, rampage decoration, priority targets, shot type (Bow), ammo + handling (LBG)
 - Afflicted material database with tier filter (A1–A9) and live search
 - Material pinning with per-material "amount needed" stepper; pinned items move to a dedicated Pinned section
+- Monster Drops: per-rank reward tables with percentages, filterable by rank (same pill-filter pattern as Afflicted Materials' tier filter); handles monsters that only exist in certain ranks and monsters that cannot be captured; excludes afflicted/anomaly investigation materials because those live in the Afflicted Materials tab; search matches monster names or material names
+- In-app Changelog page under App, driven by `data/changelog-data.js`
+- Ctrl/Cmd+F focuses the current page's in-app search box when one is available
 - Light and dark themes (follows system preference, toggleable, remembered)
 - Sidebar navigation; collapses to a top bar on mobile
-- Everything persists in the browser (localStorage): weapon, selected monster, pins, theme
+- Everything persists in the browser (localStorage): current view, filters, selected entries, pins, and theme
 
 ## Tech
 
@@ -31,6 +36,7 @@ Plain static site — HTML + CSS + vanilla JavaScript. No framework, no dependen
 | `data/game-data.js` | Weapons and per-monster matchup data (`window.SUNBREAK_DATA`) |
 | `data/materials-data.js` | Afflicted material data (`window.afflictedMaterials`) |
 | `data/changelog-data.js` | Version history shown on the in-app Changelog page (`window.APP_CHANGELOG`) |
+| `data/drops-data.js` | Monster Drops reward tables (`window.MONSTER_DROPS`) — see schema notes in the file header |
 
 ## Run locally
 
@@ -47,6 +53,22 @@ python -m http.server 8613
 Deployed on **Vercel** from this repository: framework preset **Other**, no build command, output directory = repo root. Every push to `main` auto-deploys.
 
 ## Changelog
+
+### v1.20
+- Added a standalone **Home** tab with a simple welcome, creator credit, and Capcom/unofficial fan-reference disclaimer.
+- Ctrl/Cmd+F now focuses the current page's search box when one is available, instead of jumping straight to the browser's find popup.
+- Fixed **Monster Drops** search/filter confusion: material searches now respect the selected rank, so Master Rank-only monsters/materials do not fall back to a default Low Rank monster.
+- Removed Monster Drops pinning, redundant rank notes, and afflicted/anomaly investigation materials from Monster Drops. Checklist tracking and afflicted materials stay in the **Afflicted Materials** tab.
+- Shortened the Monster Drops monster list panel for easier scanning.
+- Updated the Home creator credit from "By: Craby" to a cleaner "Made by Craby" line.
+
+### v1.19
+- New **Monster Drops** page under Monster Materials (alongside Afflicted Materials).
+- Handles the real variety of MH Rise: Sunbreak reward structures, not just a uniform LR/HR/MR table: base-game species (LR + HR + MR), Sunbreak-exclusive species that only exist from High Rank onward, monsters with no Low Rank quest at all (Bazelgeuse, Jyuratodus), and Apex monsters (Anomaly Investigation only, no Capture Reward — replaced with a Field Drops section, since Apex monsters can't be captured).
+- **Redesigned to match Afflicted Materials' UI**, per Craby's feedback that the first pass was too cluttered: a **Low Rank / High Rank / Master Rank pill filter** (identical pattern to the A1–A9 tier filter) replaces the old in-card rank tabs and narrows the monster list to only monsters that have that rank, exactly like the tier filter does for materials. The card shows a "Showing: (Rank)" badge in its hero, mirroring the Tier badge on a material card.
+- Reward data is shown as a real **table**: one row per material, one column per category (Target / Capture / Carve / Break — only the columns that actually have data for that monster/rank are shown), so a material appearing in multiple categories is one row instead of repeating across four stacked sections. Scrolls horizontally on narrow screens rather than squeezing.
+- **Search now matches material names, not just monster names** — searching "Wyvern Gem" finds every monster that drops it, with a "Drops: (item name)" hint under the matched monster.
+- **Status: 78 of 78 large monsters added** - the Monster Drops dataset now covers every large monster in the matchup database. Data is sourced from public MH Rise: Sunbreak reference databases (Game8 and Kiranico); small monsters are a deliberate follow-up phase, not included yet.
 
 ### v0.18
 - Refreshing the page no longer jumps back to Monster Matchups: the current section (Matchups / Afflicted Materials / Changelog), the selected material, the element filter, and the tier filter are all saved in localStorage and restored on load. (Weapon, selected monster, pins, and theme were already persisted.)
