@@ -356,7 +356,13 @@ function renderMaterials() {
         </div>
         ${pinned.length ? `
         <aside class="monster-panel pinned-panel">
-          <div class="list-meta"><strong>Pinned</strong><strong>${pinned.length}</strong></div>
+          <div class="list-meta">
+            <strong>Pinned</strong>
+            <span class="list-meta-actions">
+              <strong>${pinned.length}</strong>
+              <button type="button" class="unpin-all" id="unpinAll">Unpin all</button>
+            </span>
+          </div>
           <div class="pinned-list">
             ${pinned.map(m => materialRow(m, selected)).join('')}
           </div>
@@ -378,6 +384,22 @@ function renderMaterials() {
     renderMaterials();
   }));
   wireMaterialRows(document);
+
+  const unpinAll = document.querySelector('#unpinAll');
+  unpinAll?.addEventListener('click', () => {
+    if (!unpinAll.classList.contains('armed')) {
+      unpinAll.classList.add('armed');
+      unpinAll.textContent = 'Sure?';
+      setTimeout(() => {
+        unpinAll.classList.remove('armed');
+        unpinAll.textContent = 'Unpin all';
+      }, 2500);
+      return;
+    }
+    state.pins = {};
+    savePins();
+    renderMaterials();
+  });
 
   if (selected) wirePinControls(selected);
 }

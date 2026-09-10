@@ -3,7 +3,8 @@ window.APP_CHANGELOG = [
     "version": "v0.18",
     "changes": [
       "The app now stays where you were after a refresh (section, selection, and filters are remembered).",
-      "Pinned materials moved next to the material details to make use of the empty space."
+      "Pinned materials moved next to the material details to make use of the empty space.",
+      "Added an Unpin All button to the pinned panel."
     ]
   },
   {

@@ -566,6 +566,23 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   min-width: 0;
 }
 
+.list-meta-actions { display: flex; align-items: center; gap: 10px; }
+.unpin-all {
+  border: 1px solid var(--line-strong);
+  background: none;
+  color: var(--muted);
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.unpin-all:hover { color: var(--ink); border-color: var(--faint); }
+.unpin-all.armed {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 .pin-amount {
   flex: 0 0 auto;
   font-size: 11px;
