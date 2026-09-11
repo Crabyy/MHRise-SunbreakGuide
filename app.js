@@ -232,7 +232,7 @@ function renderHome() {
     <section class="home-welcome" aria-labelledby="homeTitle">
       <span class="eyebrow">Welcome</span>
       <h1 id="homeTitle">Hello hunter.</h1>
-      <p>Welcome to Monster Hunter Rise: Sunbreak Utility.</p>
+      <p>A little Sunbreak companion I put together for myself — weapon matchups, drop tables, and afflicted materials, all in one place, so you can get back to the hunt faster.</p>
       <p class="home-credit">Made by <a href="https://github.com/Crabyy" target="_blank" rel="noopener">Craby</a></p>
       <small class="home-disclaimer">Monster Hunter Rise: Sunbreak &copy; Capcom &middot; Unofficial Fan Reference</small>
     </section>

@@ -347,6 +347,7 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   font-size: 16px;
 }
 .home-credit {
+  margin-top: 24px;
   color: var(--ink);
 }
 .home-credit a {
@@ -356,6 +357,7 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 }
 .home-credit a:hover { color: var(--ink); }
 .home-disclaimer {
+  display: block;
   margin-top: 24px;
   color: var(--muted);
   font-size: 13px;
