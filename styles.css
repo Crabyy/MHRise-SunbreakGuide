@@ -575,15 +575,16 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   font-size: 12.5px;
 }
 
-.drop-table-wrap { overflow-x: auto; }
+.drop-table-wrap { overflow-x: hidden; }
 .drop-table {
   width: 100%;
-  min-width: 760px;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 12.5px;
 }
+.drop-table th:first-child, .drop-table td:first-child { width: 20%; }
 .drop-table th {
-  padding: 9px 14px;
+  padding: 9px 12px;
   background: var(--panel-head);
   border-bottom: 1px solid var(--line-strong);
   color: var(--faint);
@@ -596,25 +597,41 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   white-space: normal;
 }
 .drop-table td {
-  padding: 9px 14px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
+  overflow-wrap: break-word;
 }
 .drop-table tbody tr:last-child td { border-bottom: 0; }
 .drop-item {
   color: var(--ink);
   font-size: 13px;
   font-weight: 600;
-  white-space: nowrap;
 }
 .drop-cell {
   color: var(--accent-ink);
   font-weight: 600;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 .drop-empty {
   color: var(--faint);
   font-weight: 400;
+}
+
+/* Shrink the table's type and padding on narrow screens so all six columns
+   keep fitting side by side, with cell text wrapping instead of scrolling. */
+@media (max-width: 760px) {
+  .drop-table { font-size: 10.5px; }
+  .drop-table th, .drop-table td { padding: 6px 5px; }
+  .drop-table th { font-size: 8.5px; letter-spacing: .04em; }
+  .drop-item { font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .drop-table { font-size: 9.5px; }
+  .drop-table th, .drop-table td { padding: 5px 4px; }
+  .drop-table th { font-size: 7.5px; }
+  .drop-item { font-size: 10px; }
 }
 
 /* ---------- Changelog ---------- */

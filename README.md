@@ -37,6 +37,7 @@ Plain static site — HTML + CSS + vanilla JavaScript. No framework, no dependen
 | `data/materials-data.js` | Afflicted material data (`window.afflictedMaterials`) |
 | `data/changelog-data.js` | Version history shown on the in-app Changelog page (`window.APP_CHANGELOG`) |
 | `data/drops-data.js` | Monster Drops reward tables (`window.MONSTER_DROPS`) — see schema notes in the file header |
+| `data/monster-order.js` | Canonical monster display order (`window.MONSTER_ORDER`) used to sort the Monster Matchups and Monster Drops lists |
 
 ## Run locally
 
@@ -52,6 +53,18 @@ python -m http.server 8613
 
 Deployed on **Vercel** from this repository: framework preset **Other**, no build command, output directory = repo root. Every push to `main` auto-deploys.
 
+## Versioning & changelog policy
+
+This project keeps two changelogs on purpose, and they are not meant to match line-for-line:
+
+- **This README's Changelog section** is the exhaustive record. Every change gets documented here in full detail, no matter how small — this file is the source of truth for what actually happened and why.
+- **The in-app changelog** (`data/changelog-data.js`, shown on the app's Changelog page) is written for end users and stays terse:
+  - A **small** tweak or fix (wording, a minor visual nit, a small bug fix that doesn't change how a feature works) does **not** get its own version bump. Add it as a bullet (or fold it into an existing "Small changes." bullet) under the **current** version's entry.
+  - Bump the **minor/patch** number (v1.20 → v1.21) for an update that's a bit more than small — a real fix users would notice, a small feature, a meaningful UI change.
+  - Bump the **major** number (v1.x → v2.0) only for a major update — a redesign, a new core feature area, a significant rework of how the app is used.
+
+If you're an AI agent picking up this repo: read this section before touching `data/changelog-data.js` or the "Version" line at the top of this README, and apply the same judgment call above rather than defaulting to a new version entry for every change.
+
 ## Changelog
 
 ### v1.20
@@ -62,6 +75,8 @@ Deployed on **Vercel** from this repository: framework preset **Other**, no buil
 - Removed Monster Drops pinning, redundant rank notes, and afflicted/anomaly investigation materials from Monster Drops. Checklist tracking and afflicted materials stay in the **Afflicted Materials** tab.
 - Shortened the Monster Drops monster list panel for easier scanning.
 - Updated the Home creator credit from "By: Craby" to a cleaner "Made by Craby" line.
+- Fixed **Monster Drops**: the reward table had a fixed minimum width, so on mobile and mid-size displays (roughly anything narrower than ~1050px) it silently overflowed off-screen with no visible scrollbar, hiding the Broken Part Rewards / Carves / Dropped Materials columns. It's now `table-layout: fixed` with proportional columns and wrapping cell text, so the full table (all 6 columns) always fits within the viewport at any screen size — no horizontal scrolling required.
+- Monster lists on **Monster Matchups** and **Monster Drops** now follow a fixed game-progression order (`data/monster-order.js`) instead of alphabetical.
 - Small changes.
 
 ### v1.19

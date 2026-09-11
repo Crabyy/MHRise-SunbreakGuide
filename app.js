@@ -7,7 +7,16 @@ const changelogSwitch = document.querySelector('#changelogSwitch');
 const themeToggle = document.querySelector('#themeToggle');
 const materials = window.afflictedMaterials || [];
 const changelog = window.APP_CHANGELOG || [];
-const drops = (window.MONSTER_DROPS || []).slice().sort((a, b) => a.name.localeCompare(b.name));
+
+const MONSTER_ORDER_INDEX = new Map((window.MONSTER_ORDER || []).map((name, i) => [name, i]));
+function monsterOrderIndex(name) {
+  const i = MONSTER_ORDER_INDEX.get(name);
+  return i === undefined ? Infinity : i;
+}
+function byMonsterOrder(a, b) { return monsterOrderIndex(a.name) - monsterOrderIndex(b.name); }
+
+data.monsters.sort(byMonsterOrder);
+const drops = (window.MONSTER_DROPS || []).slice().sort(byMonsterOrder);
 const savedView = localStorage.getItem('shg_view');
 let currentView = ['home', 'matchups', 'materials', 'changelog', 'drops'].includes(savedView) ? savedView : 'home';
 
