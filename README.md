@@ -17,7 +17,7 @@ A personal Monster Hunter Rise: Sunbreak reference web app. It answers three que
 - Full matchup detail: recommended weapon, element, rampage decoration, priority targets, shot type (Bow), ammo + handling (LBG)
 - Afflicted material database with tier filter (A1–A9) and live search
 - Material pinning with per-material "amount needed" stepper; pinned items move to a dedicated Pinned section
-- Monster Drops: per-rank reward tables with percentages, filterable by rank (same pill-filter pattern as Afflicted Materials' tier filter); handles monsters that only exist in certain ranks and monsters that cannot be captured; excludes afflicted/anomaly investigation materials because those live in the Afflicted Materials tab; search matches monster names or material names
+- Monster Drops: per-rank reward tables with percentages, filterable by rank (same pill-filter pattern as Afflicted Materials' tier filter); handles monsters that only exist in certain ranks and monsters that cannot be captured; includes Dropped Materials; excludes afflicted/anomaly investigation materials because those live in the Afflicted Materials tab; search matches monster names or material names
 - In-app Changelog page under App, driven by `data/changelog-data.js`
 - Ctrl/Cmd+F focuses the current page's in-app search box when one is available
 - Light and dark themes (follows system preference, toggleable, remembered)
@@ -58,6 +58,7 @@ Deployed on **Vercel** from this repository: framework preset **Other**, no buil
 - Added a standalone **Home** tab with a simple welcome, creator credit, and Capcom/unofficial fan-reference disclaimer.
 - Ctrl/Cmd+F now focuses the current page's search box when one is available, instead of jumping straight to the browser's find popup.
 - Fixed **Monster Drops** search/filter confusion: material searches now respect the selected rank, so Master Rank-only monsters/materials do not fall back to a default Low Rank monster.
+- Added **Dropped Materials** to Monster Drops and made the reward table columns constant: Target Rewards, Capture Rewards, Broken Part Rewards, Carves, and Dropped Materials.
 - Removed Monster Drops pinning, redundant rank notes, and afflicted/anomaly investigation materials from Monster Drops. Checklist tracking and afflicted materials stay in the **Afflicted Materials** tab.
 - Shortened the Monster Drops monster list panel for easier scanning.
 - Updated the Home creator credit from "By: Craby" to a cleaner "Made by Craby" line.

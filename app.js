@@ -576,7 +576,7 @@ function materialCard(material) {
 }
 
 const RANK_LABELS = { lowRank: 'Low Rank', highRank: 'High Rank', masterRank: 'Master Rank' };
-const DROP_SECTION_KEYS = ['target', 'capture', 'carve', 'breaks', 'drops'];
+const DROP_SECTION_KEYS = ['target', 'capture', 'breaks', 'carve', 'drops'];
 const AFFLICTED_DROP_NAMES = new Set(materials.map(material => material.material));
 
 function isAfflictedDropEntry(entry) {
@@ -720,10 +720,16 @@ function dropMonsterRow(monster, selected) {
   `;
 }
 
-const DROP_CATEGORY_LABELS = { target: 'Target', capture: 'Capture', carve: 'Carve', breaks: 'Break', drops: 'Drop' };
+const DROP_CATEGORY_LABELS = {
+  target: 'Target Rewards',
+  capture: 'Capture Rewards',
+  breaks: 'Broken Part Rewards',
+  carve: 'Carves',
+  drops: 'Dropped Materials'
+};
 
 function tabularDropData(rankData) {
-  const categories = DROP_SECTION_KEYS.filter(key => visibleDropEntries(rankData, key).length > 0);
+  const categories = DROP_SECTION_KEYS;
   const byItem = new Map();
   const order = [];
   categories.forEach(key => {
@@ -746,7 +752,7 @@ function dropCard(monster) {
       <div class="result-hero">
         <div>
           <h2>${escapeHtml(monster.name)}</h2>
-          <p>Carve, capture &amp; break rewards</p>
+          <p>Target, capture, break, carve &amp; dropped-material rewards</p>
         </div>
         <div class="verdict">
           <small>Showing</small>

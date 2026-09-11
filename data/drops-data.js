@@ -1,4 +1,4 @@
-// Monster Drops: carve / capture / target / part-break reward tables.
+// Monster Drops: carve / capture / target / part-break / dropped-material reward tables.
 // Sourced and cross-checked from public MH Rise: Sunbreak reference databases (Game8 and Kiranico).
 // Afflicted/anomaly investigation materials are intentionally excluded; use the Afflicted Materials tab for those.
 // Schema per monster:
@@ -7,7 +7,7 @@
 //   order  - which rank keys exist and in what order to show them
 //   <rank> - lowRank / highRank / masterRank, each an object of optional sections:
 //            target (quest reward pool), capture (capture reward pool),
-//            carve (body/part carve pool), breaks (part-break rewards), drops (field/auto drops)
+//            carve (body/part carve pool), breaks (part-break rewards), drops (dropped materials)
 //            each section is an array of { item, rate, part? }
 window.MONSTER_DROPS = [
   {
@@ -86,6 +86,30 @@ window.MONSTER_DROPS = [
           "item": "Sleep Sac",
           "rate": "30%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Baggi Hide",
+          "rate": "40%"
+        },
+        {
+          "item": "Great Baggi Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Great Baggi Hide",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Baggi Claw",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -172,6 +196,38 @@ window.MONSTER_DROPS = [
           "rate": "10%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Great Baggi Hide+",
+          "rate": "39%"
+        },
+        {
+          "item": "Great Baggi Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Great Baggi Hide+",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Baggi Claw+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -256,6 +312,42 @@ window.MONSTER_DROPS = [
           "rate": "2-5%",
           "part": "Head/Body"
         }
+      ],
+      "drops": [
+        {
+          "item": "Great Baggi Thickhide",
+          "rate": "37%"
+        },
+        {
+          "item": "Great Baggi Claw+",
+          "rate": "8% x2"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "4%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Great Baggi Thickhide",
+          "rate": "80%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Baggi Claw+",
+          "rate": "20% x2",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -335,6 +427,41 @@ window.MONSTER_DROPS = [
           "item": "Arzuros Pelt",
           "rate": "20%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Arzuros Pelt",
+          "rate": "40%"
+        },
+        {
+          "item": "Arzuros Brace",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Honey",
+          "rate": "100%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Sushifish",
+          "rate": "85%"
+        },
+        {
+          "item": "Goldenfish",
+          "rate": "15%"
+        },
+        {
+          "item": "Arzuros Pelt",
+          "rate": "60%"
+        },
+        {
+          "item": "Arzuros Shell",
+          "rate": "40%"
         }
       ]
     },
@@ -419,6 +546,49 @@ window.MONSTER_DROPS = [
           "item": "Arzuros Pelt+",
           "rate": "20%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Arzuros Pelt+",
+          "rate": "39%"
+        },
+        {
+          "item": "Arzuros Brace+",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Honey",
+          "rate": "100% x3",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Sushifish",
+          "rate": "75%"
+        },
+        {
+          "item": "Goldenfish",
+          "rate": "25%"
+        },
+        {
+          "item": "Arzuros Pelt+",
+          "rate": "60%"
+        },
+        {
+          "item": "Arzuros Carapace",
+          "rate": "40%"
         }
       ]
     },
@@ -512,6 +682,53 @@ window.MONSTER_DROPS = [
           "item": "Arzuros Allbrace",
           "rate": "80%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Arzuros Fur",
+          "rate": "35%"
+        },
+        {
+          "item": "Arzuros Allbrace",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "4%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Honey",
+          "rate": "100% x5",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Sushifish",
+          "rate": "75%"
+        },
+        {
+          "item": "Goldenfish",
+          "rate": "25%"
+        },
+        {
+          "item": "Arzuros Fur",
+          "rate": "60%"
+        },
+        {
+          "item": "Arzuros Cortex",
+          "rate": "40%"
         }
       ]
     }
@@ -634,6 +851,39 @@ window.MONSTER_DROPS = [
           "item": "Anjanath Tail",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Anjanath Scale",
+          "rate": "39%"
+        },
+        {
+          "item": "Anjanath Fang",
+          "rate": "10%"
+        },
+        {
+          "item": "Anjanath Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Anjanath Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Pelt",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Fang",
+          "rate": "20%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -766,6 +1016,52 @@ window.MONSTER_DROPS = [
           "rate": "65%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Anjanath Scale+",
+          "rate": "36%"
+        },
+        {
+          "item": "Anjanath Fang+",
+          "rate": "10%"
+        },
+        {
+          "item": "Anjanath Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Anjanath Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Anjanath Scale+",
+          "rate": "49%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Pelt+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Fang+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -897,6 +1193,52 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Anjanath Shard",
+          "rate": "36%"
+        },
+        {
+          "item": "Anjanath Hardfang",
+          "rate": "10%"
+        },
+        {
+          "item": "Anjanath Gem",
+          "rate": "3%"
+        },
+        {
+          "item": "Anjanath Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Anjanath Shard",
+          "rate": "49%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Fur",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Hardfang",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Anjanath Gem",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -952,6 +1294,39 @@ window.MONSTER_DROPS = [
           "rate": "38%",
           "part": "Body"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rathalos Scale",
+          "rate": "37%"
+        },
+        {
+          "item": "Rath Wingtalon",
+          "rate": "12%"
+        },
+        {
+          "item": "Rathalos Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Rathalos Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Shell",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingtalon",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -1001,6 +1376,52 @@ window.MONSTER_DROPS = [
           "item": "Rathalos Scale+",
           "rate": "36%",
           "part": "Body/Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rathalos Scale+",
+          "rate": "34%"
+        },
+        {
+          "item": "Rath Wingtalon+",
+          "rate": "12%"
+        },
+        {
+          "item": "Rathalos Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Rathalos Ruby",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Rathalos Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Carapace",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingtalon+",
+          "rate": "19%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -1102,6 +1523,52 @@ window.MONSTER_DROPS = [
           "item": "Rathalos Cortex",
           "rate": "62%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rathalos Shard",
+          "rate": "34%"
+        },
+        {
+          "item": "Rath Wingripper",
+          "rate": "12%"
+        },
+        {
+          "item": "Rathalos Ruby",
+          "rate": "3%"
+        },
+        {
+          "item": "Rathalos Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Rathalos Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Cortex",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingripper",
+          "rate": "19%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Ruby",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -1243,6 +1710,44 @@ window.MONSTER_DROPS = [
           "item": "Rathian Scale",
           "rate": "60%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rathian Scale",
+          "rate": "45%"
+        },
+        {
+          "item": "Rathian Spike",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathian Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Rathian Scale",
+          "rate": "45%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Shell",
+          "rate": "39%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingtalon",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Spike",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -1388,6 +1893,57 @@ window.MONSTER_DROPS = [
           "rate": "60%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rathian Scale+",
+          "rate": "42%"
+        },
+        {
+          "item": "Rathian Spike+",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathian Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Rathian Ruby",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Rathian Scale+",
+          "rate": "44%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Carapace",
+          "rate": "39%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingtalon+",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Spike+",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -1518,6 +2074,57 @@ window.MONSTER_DROPS = [
           "rate": "60%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rathian Shard",
+          "rate": "42%"
+        },
+        {
+          "item": "Rathian Surspike",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathian Ruby",
+          "rate": "3%"
+        },
+        {
+          "item": "Rathian Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Rathian Shard",
+          "rate": "44%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Cortex",
+          "rate": "39%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rath Wingripper",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Surspike",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Ruby",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -1577,6 +2184,35 @@ window.MONSTER_DROPS = [
           "item": "Tigrex Scalp",
           "rate": "5%"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tigrex Scale",
+          "rate": "40%"
+        },
+        {
+          "item": "Tigrex Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Tigrex Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Shell",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Claw",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -1634,6 +2270,43 @@ window.MONSTER_DROPS = [
         {
           "item": "Tigrex Maw",
           "rate": "5%"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Tigrex Scale+",
+          "rate": "39%"
+        },
+        {
+          "item": "Tigrex Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Tigrex Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Carapace",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Claw+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -1767,6 +2440,39 @@ window.MONSTER_DROPS = [
           "rate": "60%",
           "part": "Head (x2)"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tigrex Shard",
+          "rate": "39%"
+        },
+        {
+          "item": "Tigrex Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Tigrex Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Tigrex Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Cortex",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tigrex Hardclaw",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -1883,6 +2589,48 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Espinas Shard",
+          "rate": "28%"
+        },
+        {
+          "item": "Espinas Cortex",
+          "rate": "18%"
+        },
+        {
+          "item": "Espinas Surspike",
+          "rate": "3%"
+        },
+        {
+          "item": "Espinas Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Espinas Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Espinas Cortex",
+          "rate": "34%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Espinas Toxic Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Espinas Surspike",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -1983,6 +2731,43 @@ window.MONSTER_DROPS = [
           "item": "Garangolm Hardfang",
           "rate": "60%",
           "part": "Head (x2)"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Golm Thick Juice",
+          "rate": "30%"
+        },
+        {
+          "item": "Garangolm Cortex",
+          "rate": "17%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "3%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Garangolm Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Garangolm Hardfang",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Golm Thick Juice",
+          "rate": "15% x2",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -2138,6 +2923,52 @@ window.MONSTER_DROPS = [
           "rate": "5%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Gold Rathian Shard",
+          "rate": "41%"
+        },
+        {
+          "item": "Gold Rathian Cortex",
+          "rate": "10%"
+        },
+        {
+          "item": "Gold Rathian Surspike",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathian Ruby",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathian Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Gold Rathian Shard",
+          "rate": "51%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gold Rathian Cortex",
+          "rate": "46%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gold Rathian Surspike",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathian Ruby",
+          "rate": "2%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -2209,8 +3040,17 @@ window.MONSTER_DROPS = [
       ],
       "drops": [
         {
+          "item": "Honey",
+          "rate": "100% x3",
+          "part": "Wyvern Riding"
+        },
+        {
           "item": "Sushifish",
           "rate": "80%"
+        },
+        {
+          "item": "Goldenfish",
+          "rate": "20%"
         },
         {
           "item": "Arzuros Carapace",
@@ -2219,10 +3059,6 @@ window.MONSTER_DROPS = [
         {
           "item": "Arzuros Pelt+",
           "rate": "40%"
-        },
-        {
-          "item": "Goldenfish",
-          "rate": "20%"
         }
       ]
     },
@@ -2293,11 +3129,16 @@ window.MONSTER_DROPS = [
       "drops": [
         {
           "item": "Honey",
-          "rate": "100%"
+          "rate": "100% x3",
+          "part": "Wyvern Riding"
         },
         {
           "item": "Sushifish",
           "rate": "80%"
+        },
+        {
+          "item": "Goldenfish",
+          "rate": "20%"
         },
         {
           "item": "Arzuros Cortex",
@@ -2306,10 +3147,6 @@ window.MONSTER_DROPS = [
         {
           "item": "Arzuros Fur",
           "rate": "40%"
-        },
-        {
-          "item": "Goldenfish",
-          "rate": "20%"
         }
       ]
     }
@@ -2406,6 +3243,39 @@ window.MONSTER_DROPS = [
           "item": "Barioth Tail",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Barioth Shell",
+          "rate": "30%"
+        },
+        {
+          "item": "Barioth Spike",
+          "rate": "10%"
+        },
+        {
+          "item": "Barioth Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Barioth Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Pelt",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Spike",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -2513,6 +3383,47 @@ window.MONSTER_DROPS = [
           "rate": "65%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Barioth Carapace",
+          "rate": "32%"
+        },
+        {
+          "item": "Barioth Spike",
+          "rate": "7% x2"
+        },
+        {
+          "item": "Barioth Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Barioth Carapace",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Pelt+",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Spike",
+          "rate": "10% x2",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -2602,6 +3513,47 @@ window.MONSTER_DROPS = [
           "item": "Barioth Lash",
           "rate": "75%"
         }
+      ],
+      "drops": [
+        {
+          "item": "Barioth Cortex",
+          "rate": "29%"
+        },
+        {
+          "item": "Barioth Greatspike",
+          "rate": "10%"
+        },
+        {
+          "item": "Barioth Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Barioth Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Thickfur",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barioth Greatspike",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -2683,6 +3635,35 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Hind Leg"
         }
+      ],
+      "drops": [
+        {
+          "item": "Fertile Mud",
+          "rate": "35%"
+        },
+        {
+          "item": "Barroth Ridge",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Fertile Mud",
+          "rate": "30% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barroth Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barroth Ridge",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -2755,6 +3736,43 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Foreleg"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rich Mud",
+          "rate": "35%"
+        },
+        {
+          "item": "Barroth Ridge+",
+          "rate": "14%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Rich Mud",
+          "rate": "30% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barroth Carapace",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barroth Ridge+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -2821,6 +3839,38 @@ window.MONSTER_DROPS = [
           "item": "Barroth Hardclaw",
           "rate": "100%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rich Mud",
+          "rate": "35% x2"
+        },
+        {
+          "item": "Barroth Chine",
+          "rate": "14%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Barroth Cortex",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Barroth Chine",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -2933,6 +3983,39 @@ window.MONSTER_DROPS = [
           "item": "Mizutsune Plate",
           "rate": "3%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Bubblefoam",
+          "rate": "30%"
+        },
+        {
+          "item": "Mizutsune Scale",
+          "rate": "19%"
+        },
+        {
+          "item": "Mizutsune Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Bubblefoam",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Scale",
+          "rate": "45%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Purplefur",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -3070,6 +4153,52 @@ window.MONSTER_DROPS = [
           "rate": "3%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Bubblefoam+",
+          "rate": "28%"
+        },
+        {
+          "item": "Mizutsune Scale+",
+          "rate": "18%"
+        },
+        {
+          "item": "Mizutsune Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Mizutsune Water Orb",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Bubblefoam+",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Scale+",
+          "rate": "44%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Purplefur+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -3206,6 +4335,52 @@ window.MONSTER_DROPS = [
           "rate": "3%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Distilled Bubblefoam",
+          "rate": "28%"
+        },
+        {
+          "item": "Mizutsune Shard",
+          "rate": "18%"
+        },
+        {
+          "item": "Mizutsune Water Orb",
+          "rate": "3%"
+        },
+        {
+          "item": "Mizutsune Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Distilled Bubblefoam",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Shard",
+          "rate": "44%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Purplefell",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Water Orb",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -3341,6 +4516,39 @@ window.MONSTER_DROPS = [
           "item": "Nargacuga Tail",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Nargacuga Scale",
+          "rate": "25%"
+        },
+        {
+          "item": "Narga Tailspike",
+          "rate": "15%"
+        },
+        {
+          "item": "Nargacuga Fang",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Nargacuga Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Blackfur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Fang",
+          "rate": "10%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -3496,6 +4704,47 @@ window.MONSTER_DROPS = [
           "rate": "15%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Nargacuga Scale+",
+          "rate": "27%"
+        },
+        {
+          "item": "Narga Tailspike",
+          "rate": "10% x2"
+        },
+        {
+          "item": "Nargacuga Fang+",
+          "rate": "12%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Nargacuga Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Pelt+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Fang+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -3602,6 +4851,47 @@ window.MONSTER_DROPS = [
           "rate": "25%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Nargacuga Shard",
+          "rate": "24%"
+        },
+        {
+          "item": "Nargacuga Tailspear",
+          "rate": "15%"
+        },
+        {
+          "item": "Nargacuga Hardfang",
+          "rate": "10%"
+        },
+        {
+          "item": "Nargacuga Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Nargacuga Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Blackfur+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Nargacuga Hardfang",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -3703,6 +4993,39 @@ window.MONSTER_DROPS = [
           "rate": "20%",
           "part": "Foreleg x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Zinogre Shell",
+          "rate": "29%"
+        },
+        {
+          "item": "Fulgurbug",
+          "rate": "20%"
+        },
+        {
+          "item": "Zinogre Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Zinogre Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Shockfur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Claw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -3795,6 +5118,52 @@ window.MONSTER_DROPS = [
           "rate": "20%",
           "part": "Foreleg x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Zinogre Carapace",
+          "rate": "31%"
+        },
+        {
+          "item": "Fulgurbug",
+          "rate": "15% x2"
+        },
+        {
+          "item": "Zinogre Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Zinogre Jasper",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Zinogre Carapace",
+          "rate": "49%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Electrofur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Claw+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -3886,6 +5255,52 @@ window.MONSTER_DROPS = [
           "item": "Zinogre Hardclaw",
           "rate": "20%",
           "part": "Foreleg x2"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Zinogre Cortex",
+          "rate": "31%"
+        },
+        {
+          "item": "Fulgurbug",
+          "rate": "15% x2"
+        },
+        {
+          "item": "Zinogre Jasper",
+          "rate": "3%"
+        },
+        {
+          "item": "Zinogre Skymerald",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Zinogre Cortex",
+          "rate": "49%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Electrofur+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Zinogre Jasper",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -3999,6 +5414,35 @@ window.MONSTER_DROPS = [
           "item": "Diablos Tailcase",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "35%"
+        },
+        {
+          "item": "Diablos Shell",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Diablos Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Diablos Ridge",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "15% x2",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -4130,6 +5574,43 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "25% x2"
+        },
+        {
+          "item": "Diablos Carapace",
+          "rate": "24%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Diablos Carapace",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Diablos Ridge+",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "15% x2",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -4238,6 +5719,39 @@ window.MONSTER_DROPS = [
           "item": "Diablos Tailcase+",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "25% x2"
+        },
+        {
+          "item": "Diablos Cortex",
+          "rate": "24%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Diablos Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Diablos Chine",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "15% x2",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -4351,6 +5865,44 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Back"
         }
+      ],
+      "drops": [
+        {
+          "item": "Magna Ghostprism",
+          "rate": "30%"
+        },
+        {
+          "item": "Magnamalo Scale",
+          "rate": "19%"
+        },
+        {
+          "item": "Magnamalo Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Magna Ghostprism",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Scale",
+          "rate": "31%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Shell",
+          "rate": "26%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Scute",
+          "rate": "8%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -4462,6 +6014,57 @@ window.MONSTER_DROPS = [
           "item": "Magnamalo Scute+",
           "rate": "80%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Magna Soulprism",
+          "rate": "30%"
+        },
+        {
+          "item": "Magnamalo Scale+",
+          "rate": "16%"
+        },
+        {
+          "item": "Magnamalo Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Purple Magna Orb",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Magna Soulprism",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Scale+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Shell+",
+          "rate": "26%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Scute+",
+          "rate": "8%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -4578,6 +6181,57 @@ window.MONSTER_DROPS = [
           "item": "Magnamalo Bladeshell",
           "rate": "80%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Magnamalo Soulprism+",
+          "rate": "30%"
+        },
+        {
+          "item": "Magnamalo Shard",
+          "rate": "16%"
+        },
+        {
+          "item": "Purple Magna Orb",
+          "rate": "3%"
+        },
+        {
+          "item": "Magnamalo Orb",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Magnamalo Soulprism+",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Shard",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Cortex",
+          "rate": "26%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magnamalo Bladeshell",
+          "rate": "8%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Purple Magna Orb",
+          "rate": "1%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -4725,6 +6379,39 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Bazelgeuse Scale+",
+          "rate": "39%"
+        },
+        {
+          "item": "Bazelgeuse Talon",
+          "rate": "10%"
+        },
+        {
+          "item": "Bazelgeuse Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Bazelgeuse Scale+",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Bazelgeuse Carapace",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Bazelgeuse Talon",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -4881,6 +6568,39 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Bazelgeuse Shard",
+          "rate": "39%"
+        },
+        {
+          "item": "Bazelgeuse Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Bazelgeuse Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Bazelgeuse Shard",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Bazelgeuse Cortex",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Bazelgeuse Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -4970,6 +6690,30 @@ window.MONSTER_DROPS = [
           "item": "Great Izuchi Hide",
           "rate": "20%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Izuchi Hide",
+          "rate": "30%"
+        },
+        {
+          "item": "Great Izuchi Pelt",
+          "rate": "20%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Great Izuchi Hide",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Izuchi Pelt",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -5069,6 +6813,38 @@ window.MONSTER_DROPS = [
           "item": "Bird Wyvern Gem",
           "rate": "3%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Izuchi Hide+",
+          "rate": "29%"
+        },
+        {
+          "item": "Great Izuchi Pelt+",
+          "rate": "20%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Great Izuchi Hide+",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Izuchi Pelt+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -5177,6 +6953,42 @@ window.MONSTER_DROPS = [
           "item": "Screamer Sac",
           "rate": "65%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Izuchi Thickhide",
+          "rate": "27%"
+        },
+        {
+          "item": "Great Izuchi Thickfur",
+          "rate": "18%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "4%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Great Izuchi Thickhide",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Izuchi Thickfur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -5304,6 +7116,30 @@ window.MONSTER_DROPS = [
           "item": "Pukei-Pukei Tail",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Pukei-Pukei Scale",
+          "rate": "35%"
+        },
+        {
+          "item": "Pukei-Pukei Shell",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Pukei-Pukei Scale",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pukei-Pukei Shell",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -5436,6 +7272,38 @@ window.MONSTER_DROPS = [
           "item": "Pukei-Pukei Tail",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Pukei-Pukei Scale+",
+          "rate": "34%"
+        },
+        {
+          "item": "Pukei-Pukei Carapace",
+          "rate": "15%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Pukei-Pukei Scale+",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pukei-Pukei Carapace",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -5577,6 +7445,38 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Pukei-Pukei Shard",
+          "rate": "34%"
+        },
+        {
+          "item": "Pukei-Pukei Cortex",
+          "rate": "15%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Pukei-Pukei Shard",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pukei-Pukei Cortex",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -5688,6 +7588,43 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Back"
         }
+      ],
+      "drops": [
+        {
+          "item": "Jyuratodus Scale+",
+          "rate": "37%"
+        },
+        {
+          "item": "Jyuratodus Fang+",
+          "rate": "12%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Jyuratodus Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Jyuratodus Carapace",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Jyuratodus Fang+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -5791,6 +7728,43 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Back"
         }
+      ],
+      "drops": [
+        {
+          "item": "Jyuratodus Shard",
+          "rate": "37%"
+        },
+        {
+          "item": "Jyuratodus Hardfang",
+          "rate": "12%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Jyuratodus Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Jyuratodus Cortex",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Jyuratodus Hardfang",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -5879,6 +7853,35 @@ window.MONSTER_DROPS = [
           "item": "Volvidon Shell",
           "rate": "30%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Volvidon Shell",
+          "rate": "35%"
+        },
+        {
+          "item": "Volvidon Claw",
+          "rate": "15%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Volvidon Shell",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Volvidon Claw",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Monster Fluid",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -5972,6 +7975,43 @@ window.MONSTER_DROPS = [
           "item": "Volvi Carapace",
           "rate": "35%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Volvidon Carapace",
+          "rate": "34%"
+        },
+        {
+          "item": "Volvidon Claw+",
+          "rate": "15%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Volvidon Carapace",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Volvidon Claw+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Monster Broth",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -6070,6 +8110,43 @@ window.MONSTER_DROPS = [
           "item": "Volvidon Cortex",
           "rate": "30%",
           "part": "Back"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Volvidon Cortex",
+          "rate": "34%"
+        },
+        {
+          "item": "Volvidon Talon",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Volvidon Cortex",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Volvidon Talon",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Monster Essence",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -6191,6 +8268,38 @@ window.MONSTER_DROPS = [
           "rate": "4%",
           "part": "Head Fin/Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Auroracanth Icescale",
+          "rate": "35%"
+        },
+        {
+          "item": "Auroracanth Iceclaw",
+          "rate": "14%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Auroracanth Icescale",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Auroracanth Iceclaw",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -6295,6 +8404,43 @@ window.MONSTER_DROPS = [
           "item": "Chameleos Tail",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Chameleos Hide+",
+          "rate": "30%"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Fucium Ore",
+          "rate": "14%"
+        },
+        {
+          "item": "Chameleos Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Chameleos Hide+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Chameleos Claw+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "20%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -6403,6 +8549,47 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Body"
         }
+      ],
+      "drops": [
+        {
+          "item": "Chameleos Finehide",
+          "rate": "30%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Ultimas Crystal",
+          "rate": "14%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "15%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "25%"
+        },
+        {
+          "item": "Chameleos Finehide",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Chameleos Hardclaw",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -6495,6 +8682,26 @@ window.MONSTER_DROPS = [
           "item": "Monster Hardbone",
           "rate": "10%",
           "part": "Shell x2"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Crab Pearl+",
+          "rate": "80%"
+        },
+        {
+          "item": "Fine Black Pearl",
+          "rate": "20%"
+        },
+        {
+          "item": "Hermitaur Cortex",
+          "rate": "80%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Hermitaur Cortex",
+          "rate": "20% x2",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -6613,6 +8820,48 @@ window.MONSTER_DROPS = [
           "item": "Goss Harag Brace",
           "rate": "20%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Block of Ice",
+          "rate": "35%"
+        },
+        {
+          "item": "Goss Harag Claw",
+          "rate": "15%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Block of Ice",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Fur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Hide",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Claw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Fur",
+          "rate": "60%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "40%"
         }
       ]
     },
@@ -6755,6 +9004,64 @@ window.MONSTER_DROPS = [
           "rate": "8%",
           "part": "Back"
         }
+      ],
+      "drops": [
+        {
+          "item": "Block of Ice+",
+          "rate": "33%"
+        },
+        {
+          "item": "Goss Harag Claw+",
+          "rate": "14%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "2%"
+        },
+        {
+          "item": "Goss Harag Bile",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Block of Ice+",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Fur+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Hide+",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Claw+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Fur+",
+          "rate": "60%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "30%"
+        }
       ]
     },
     "masterRank": {
@@ -6854,6 +9161,64 @@ window.MONSTER_DROPS = [
           "item": "Goss Harag Hardhorn",
           "rate": "80%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Dense Block of Ice",
+          "rate": "33%"
+        },
+        {
+          "item": "Goss Harag Hardclaw",
+          "rate": "14%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "2%"
+        },
+        {
+          "item": "Goss Harag Bile+",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Dense Block of Ice",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Frozen Fur",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Finehide",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Goss Harag Frozen Fur",
+          "rate": "60%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "5%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "35%"
         }
       ]
     }
@@ -6955,6 +9320,42 @@ window.MONSTER_DROPS = [
           "item": "Electro Sac",
           "rate": "15%",
           "part": "Body"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Suspicious Fang",
+          "rate": "20%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "30%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "80%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Flabby Hide",
+          "rate": "40%"
+        },
+        {
+          "item": "Suspicious Fang",
+          "rate": "20%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "40%"
         }
       ]
     },
@@ -7065,6 +9466,55 @@ window.MONSTER_DROPS = [
           "rate": "19%",
           "part": "Body x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Suspicious Fang+",
+          "rate": "27%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "22% x2"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "70% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pearl Hide",
+          "rate": "50%"
+        },
+        {
+          "item": "Suspicious Fang+",
+          "rate": "20%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "30% x2"
+        }
       ]
     },
     "masterRank": {
@@ -7174,6 +9624,50 @@ window.MONSTER_DROPS = [
           "rate": "19%",
           "part": "Body x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Mystic Hardfang",
+          "rate": "27%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "22% x2"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "70% x3",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pearl Glosshide",
+          "rate": "50%"
+        },
+        {
+          "item": "Mystic Hardfang",
+          "rate": "20%"
+        },
+        {
+          "item": "Pale Extract",
+          "rate": "30% x2"
+        }
       ]
     }
   },
@@ -7258,6 +9752,35 @@ window.MONSTER_DROPS = [
           "item": "Lagombi Pelt",
           "rate": "20%",
           "part": "Head x2"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Lagombi Pelt",
+          "rate": "40%"
+        },
+        {
+          "item": "Lagombi Iceclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Lagombi Pelt",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Plastron",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Iceclaw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -7352,6 +9875,43 @@ window.MONSTER_DROPS = [
           "item": "Beast Gem",
           "rate": "8%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Lagombi Pelt+",
+          "rate": "39%"
+        },
+        {
+          "item": "Lagombi Frozenclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Lagombi Pelt+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Plastron+",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Frozenclaw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -7455,6 +10015,47 @@ window.MONSTER_DROPS = [
           "item": "Large Beast Gem",
           "rate": "5%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Lagombi Fur",
+          "rate": "35%"
+        },
+        {
+          "item": "Lagombi Frigidclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "4%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Lagombi Fur",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Cuirass",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lagombi Frigidclaw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -7565,6 +10166,39 @@ window.MONSTER_DROPS = [
           "item": "Luna Vermilion Hardclaw",
           "rate": "30%",
           "part": "Foreleg x2"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Lunagaron Shard",
+          "rate": "29%"
+        },
+        {
+          "item": "Lunagaron Bluecore",
+          "rate": "20%"
+        },
+        {
+          "item": "Lunagaron Frost Jewel",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Lunagaron Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Lunagaron Cortex",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Frostborn Hardfang",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -7722,6 +10356,44 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Golden Muck",
+          "rate": "30%"
+        },
+        {
+          "item": "Almudron Scale",
+          "rate": "19%"
+        },
+        {
+          "item": "Almudron Plate",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Golden Muck",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Scale",
+          "rate": "37%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Shell",
+          "rate": "28%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Claw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -7888,6 +10560,57 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Golden Sludge",
+          "rate": "28%"
+        },
+        {
+          "item": "Almudron Scale+",
+          "rate": "18%"
+        },
+        {
+          "item": "Almudron Plate",
+          "rate": "3%"
+        },
+        {
+          "item": "Golden Almudron Orb",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Golden Sludge",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Scale+",
+          "rate": "36%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Shell+",
+          "rate": "28%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Claw+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Plate",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -8028,6 +10751,57 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Pure Golden Sludge",
+          "rate": "28%"
+        },
+        {
+          "item": "Almudron Shard",
+          "rate": "18%"
+        },
+        {
+          "item": "Golden Almudron Orb",
+          "rate": "3%"
+        },
+        {
+          "item": "Almudron Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "5%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "45%"
+        },
+        {
+          "item": "Pure Golden Sludge",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Shard",
+          "rate": "36%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Cortex",
+          "rate": "28%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Almudron Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Golden Almudron Orb",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -8149,6 +10923,35 @@ window.MONSTER_DROPS = [
           "item": "Royal Ludroth Tail",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "40%"
+        },
+        {
+          "item": "Royal Ludroth Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Spongy Hide",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Royal Ludroth Claw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -8275,6 +11078,43 @@ window.MONSTER_DROPS = [
           "item": "Royal Ludroth Tail",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "34% x2"
+        },
+        {
+          "item": "Royal Ludroth Claw+",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "25%"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Spongy Hide+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Royal Ludroth Claw+",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -8402,6 +11242,43 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Dash Extract",
+          "rate": "34% x2"
+        },
+        {
+          "item": "Royal Ludroth Talon",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Dash Extract",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Spongy Piel",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Royal Ludroth Talon",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -8511,6 +11388,48 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Velkhana Cortex",
+          "rate": "32%"
+        },
+        {
+          "item": "Velkhana Hardclaw",
+          "rate": "12%"
+        },
+        {
+          "item": "Velkhana Crystal",
+          "rate": "1%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Velkhana Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Crystal Shard",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Velkhana Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -8614,6 +11533,30 @@ window.MONSTER_DROPS = [
           "item": "Aknosom Scale",
           "rate": "100%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Aknosom Scale",
+          "rate": "35%"
+        },
+        {
+          "item": "Aknosom Feather",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Aknosom Scale",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Aknosom Feather",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -8727,6 +11670,38 @@ window.MONSTER_DROPS = [
           "item": "Bird Wyvern Gem",
           "rate": "5%",
           "part": "Beak"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Aknosom Scale+",
+          "rate": "34%"
+        },
+        {
+          "item": "Aknosom Feather+",
+          "rate": "15%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Aknosom Scale+",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Aknosom Feather+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -8850,6 +11825,38 @@ window.MONSTER_DROPS = [
           "rate": "5%",
           "part": "Beak"
         }
+      ],
+      "drops": [
+        {
+          "item": "Aknosom Shard",
+          "rate": "34%"
+        },
+        {
+          "item": "Aknosom Plume",
+          "rate": "15%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Aknosom Shard",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Aknosom Plume",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -8949,6 +11956,45 @@ window.MONSTER_DROPS = [
           "item": "Bishaten Fur",
           "rate": "20%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Bishaten Fur",
+          "rate": "40%"
+        },
+        {
+          "item": "Bisha Tailcase",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Jumbofruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Poisonfruit",
+          "rate": "100%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Flashfruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Bishaten Fur",
+          "rate": "50%"
+        },
+        {
+          "item": "Bishaten Feather",
+          "rate": "35%"
+        },
+        {
+          "item": "Bisha Tailcase",
+          "rate": "15%"
         }
       ]
     },
@@ -9058,6 +12104,57 @@ window.MONSTER_DROPS = [
           "item": "Beast Gem",
           "rate": "5%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Bishaten Fur+",
+          "rate": "39%"
+        },
+        {
+          "item": "Bishaten Tailcase+",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Jumbofruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Poisonfruit",
+          "rate": "100%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Parafruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Flashfruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Bishaten Fur+",
+          "rate": "50%"
+        },
+        {
+          "item": "Bishaten Feather+",
+          "rate": "35%"
+        },
+        {
+          "item": "Bishaten Tailcase+",
+          "rate": "15%"
         }
       ]
     },
@@ -9172,6 +12269,57 @@ window.MONSTER_DROPS = [
           "rate": "5%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Bishaten Finefur",
+          "rate": "39%"
+        },
+        {
+          "item": "Bishaten Hardtail",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Jumbofruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Poisonfruit",
+          "rate": "100%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Parafruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Flashfruit",
+          "rate": "100%"
+        },
+        {
+          "item": "Bishaten Finefur",
+          "rate": "50%"
+        },
+        {
+          "item": "Bishaten Glidefeather",
+          "rate": "35%"
+        },
+        {
+          "item": "Bishaten Hardtail",
+          "rate": "15%"
+        }
       ]
     }
   },
@@ -9249,6 +12397,30 @@ window.MONSTER_DROPS = [
           "item": "Poison Sac",
           "rate": "27%",
           "part": "Body"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Wroggi Hide",
+          "rate": "35%"
+        },
+        {
+          "item": "Great Wroggi Brace",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Great Wroggi Hide",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Wroggi Brace",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -9332,6 +12504,38 @@ window.MONSTER_DROPS = [
           "item": "Bird Wyvern Gem",
           "rate": "3%",
           "part": "Body"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Wroggi Hide+",
+          "rate": "34%"
+        },
+        {
+          "item": "Great Wroggi Brace+",
+          "rate": "15%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Great Wroggi Hide+",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Wroggi Brace+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -9424,6 +12628,38 @@ window.MONSTER_DROPS = [
           "item": "Fey Wyvern Gem",
           "rate": "2%",
           "part": "Body"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Great Wroggi Thickhide",
+          "rate": "34%"
+        },
+        {
+          "item": "Great Wroggi Brace+",
+          "rate": "15%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Great Wroggi Thickhide",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Great Wroggi Brace+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -9528,6 +12764,35 @@ window.MONSTER_DROPS = [
           "item": "Somnacanth Dust",
           "rate": "20%",
           "part": "Head Fin"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Somnacanth Dust",
+          "rate": "40%"
+        },
+        {
+          "item": "Somnacanth Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Somnacanth Dust",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Claw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -9647,6 +12912,43 @@ window.MONSTER_DROPS = [
           "rate": "3%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Somnacanth Sedative",
+          "rate": "39%"
+        },
+        {
+          "item": "Somnacanth Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Somnacanth Sedative",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Claw+",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -9759,6 +13061,43 @@ window.MONSTER_DROPS = [
           "item": "Large Wyvern Gem",
           "rate": "3%",
           "part": "Fins"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Somna Dream Powder",
+          "rate": "39%"
+        },
+        {
+          "item": "Somnacanth Dreamtalon",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Somna Dream Powder",
+          "rate": "35% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Somnacanth Dreamtalon",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -9874,6 +13213,30 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Arm"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tetra Carapace",
+          "rate": "30%"
+        },
+        {
+          "item": "Tetranadon Hide",
+          "rate": "20%"
+        },
+        {
+          "item": "Shiny Nacre",
+          "rate": "50%"
+        },
+        {
+          "item": "Tetra Carapace",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tetranadon Hide",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "highRank": {
@@ -9979,6 +13342,34 @@ window.MONSTER_DROPS = [
           "rate": "100%",
           "part": "Arm"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tetra Carapace+",
+          "rate": "30%"
+        },
+        {
+          "item": "Tetranadon Hide+",
+          "rate": "20%"
+        },
+        {
+          "item": "Shiny Nacre",
+          "rate": "20%"
+        },
+        {
+          "item": "Glittering Nacre",
+          "rate": "30%"
+        },
+        {
+          "item": "Tetra Carapace+",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tetranadon Hide+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -10083,6 +13474,34 @@ window.MONSTER_DROPS = [
           "item": "Flood Sac",
           "rate": "70%",
           "part": "Torso"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Heavy Tetra Carapace",
+          "rate": "30%"
+        },
+        {
+          "item": "Tetranadon Thickhide",
+          "rate": "20%"
+        },
+        {
+          "item": "Glittering Nacre",
+          "rate": "20%"
+        },
+        {
+          "item": "Shimmering Nacre",
+          "rate": "30%"
+        },
+        {
+          "item": "Heavy Tetra Carapace",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tetranadon Thickhide",
+          "rate": "30%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -10201,6 +13620,35 @@ window.MONSTER_DROPS = [
           "item": "Tobi-Kadachi Scale",
           "rate": "20%",
           "part": "Foreleg"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Tobi-Kadachi Scale",
+          "rate": "40%"
+        },
+        {
+          "item": "Tobi-Kadachi Claw",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Tobi-Kadachi Scale",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Pelt",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Claw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -10325,6 +13773,43 @@ window.MONSTER_DROPS = [
           "rate": "3%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tobi-Kadachi Scale+",
+          "rate": "39%"
+        },
+        {
+          "item": "Tobi-Kadachi Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Tobi-Kadachi Scale+",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Pelt+",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Claw+",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -10447,6 +13932,43 @@ window.MONSTER_DROPS = [
           "item": "Large Wyvern Gem",
           "rate": "3%"
         }
+      ],
+      "drops": [
+        {
+          "item": "Tobi-Kadachi Shard",
+          "rate": "39%"
+        },
+        {
+          "item": "Tobi-Kadachi Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Tobi-Kadachi Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Thickfur",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Tobi-Kadachi Hardclaw",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -10536,6 +14058,30 @@ window.MONSTER_DROPS = [
           "item": "Kulu-Ya-Ku Hide",
           "rate": "20%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Kulu-Ya-Ku Scale",
+          "rate": "35%"
+        },
+        {
+          "item": "Kulu-Ya-Ku Plume",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Kulu-Ya-Ku Scale",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Kulu-Ya-Ku Hide",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -10635,6 +14181,38 @@ window.MONSTER_DROPS = [
           "item": "Bird Wyvern Gem",
           "rate": "5%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Kulu-Ya-Ku Scale+",
+          "rate": "34%"
+        },
+        {
+          "item": "Kulu-Ya-Ku Plume+",
+          "rate": "15%"
+        },
+        {
+          "item": "Bird Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Kulu-Ya-Ku Scale+",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Kulu-Ya-Ku Hide+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -10738,6 +14316,38 @@ window.MONSTER_DROPS = [
           "item": "Fey Wyvern Gem",
           "rate": "5%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Kulu-Ya-Ku Shard",
+          "rate": "34%"
+        },
+        {
+          "item": "Large Kulu-Ya-Ku Plume",
+          "rate": "15%"
+        },
+        {
+          "item": "Fey Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Kulu-Ya-Ku Shard",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Kulu-Ya-Ku Thickhide",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -10864,6 +14474,39 @@ window.MONSTER_DROPS = [
           "rate": "10%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rajang Blackfur",
+          "rate": "39%"
+        },
+        {
+          "item": "Gold Rajang Pelt",
+          "rate": "10%"
+        },
+        {
+          "item": "Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Rajang Blackfur",
+          "rate": "58%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rajang Fang+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gold Rajang Pelt",
+          "rate": "12%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -10967,6 +14610,39 @@ window.MONSTER_DROPS = [
           "item": "Gold Rajang Pelt+",
           "rate": "30%",
           "part": "Horn/Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rajang Wildpelt",
+          "rate": "39%"
+        },
+        {
+          "item": "Gold Rajang Pelt+",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Rajang Wildpelt",
+          "rate": "58%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rajang Hardfang",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gold Rajang Pelt+",
+          "rate": "12%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -11077,6 +14753,48 @@ window.MONSTER_DROPS = [
           "item": "Daora Tail",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Daora Carapace",
+          "rate": "34%"
+        },
+        {
+          "item": "Daora Claw+",
+          "rate": "10%"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Daora Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Daora Dragon Scale+",
+          "rate": "45%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Carapace",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Claw+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -11193,6 +14911,52 @@ window.MONSTER_DROPS = [
           "item": "Daora Lash",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Daora Cortex",
+          "rate": "34%"
+        },
+        {
+          "item": "Daora Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "15%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "25%"
+        },
+        {
+          "item": "Daora Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Shard",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -11317,6 +15081,48 @@ window.MONSTER_DROPS = [
           "item": "Teostra Gem",
           "rate": "3%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Teostra Powder",
+          "rate": "34%"
+        },
+        {
+          "item": "Teostra Carapace",
+          "rate": "15%"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "10%"
+        },
+        {
+          "item": "Teostra Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Teostra Powder",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Teostra Carapace",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Fire Dragon Scale+",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Elder Dragon Blood",
+          "rate": "10%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -11443,6 +15249,52 @@ window.MONSTER_DROPS = [
           "item": "Large Elder Dragon Gem",
           "rate": "3%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Teostra Powder",
+          "rate": "15% x2"
+        },
+        {
+          "item": "Teostra Cortex",
+          "rate": "34%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Dragon Treasure",
+          "rate": "15%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "25%"
+        },
+        {
+          "item": "Teostra Powder",
+          "rate": "15% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Teostra Cortex",
+          "rate": "45%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Hellfire Shard",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "10%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -11579,6 +15431,39 @@ window.MONSTER_DROPS = [
           "rate": "20%",
           "part": "Wing x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Seregios Airblade+",
+          "rate": "33%"
+        },
+        {
+          "item": "Seregios Slavescale+",
+          "rate": "16%"
+        },
+        {
+          "item": "Seregios Lens",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Seregios Airblade+",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Seregios Slavescale+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Seregios Carver+",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -11671,6 +15556,26 @@ window.MONSTER_DROPS = [
           "rate": "30%",
           "part": "Claw"
         }
+      ],
+      "drops": [
+        {
+          "item": "Crab Pearl+",
+          "rate": "75%"
+        },
+        {
+          "item": "Fine Black Pearl",
+          "rate": "25%"
+        },
+        {
+          "item": "Ceanataur Cortex",
+          "rate": "80%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Ceanataur Cortex",
+          "rate": "20% x2",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -11757,6 +15662,39 @@ window.MONSTER_DROPS = [
           "item": "Astalos Wingripper",
           "rate": "20%",
           "part": "Wing x2"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Astalos Shard",
+          "rate": "30%"
+        },
+        {
+          "item": "Heavy Astalos Shell",
+          "rate": "19%"
+        },
+        {
+          "item": "Astalos Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Astalos Shard",
+          "rate": "55%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Heavy Astalos Shell",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Astalos Wingripper",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -11885,6 +15823,39 @@ window.MONSTER_DROPS = [
           "rate": "40%",
           "part": "Glowgut x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Rakna-Kadaki Silk",
+          "rate": "40%"
+        },
+        {
+          "item": "Rakna-Kadaki Spike",
+          "rate": "10%"
+        },
+        {
+          "item": "Drone Substance",
+          "rate": "10%"
+        },
+        {
+          "item": "Queen Substance",
+          "rate": "40%"
+        },
+        {
+          "item": "Rakna-Kadaki Silk",
+          "rate": "30% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rakna-Kadaki Carapace",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rakna-Kadaki Spike",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -12001,6 +15972,39 @@ window.MONSTER_DROPS = [
         {
           "item": "Monster Essence",
           "rate": "20%"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Rakna-Kadaki Silk+",
+          "rate": "40%"
+        },
+        {
+          "item": "Rakna-Kadaki Spike+",
+          "rate": "10%"
+        },
+        {
+          "item": "Drone Substance",
+          "rate": "5%"
+        },
+        {
+          "item": "Queen Substance",
+          "rate": "45%"
+        },
+        {
+          "item": "Rakna-Kadaki Silk+",
+          "rate": "30% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rakna-Kadaki Cortex",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rakna-Kadaki Spike+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -12143,6 +16147,35 @@ window.MONSTER_DROPS = [
           "item": "Basarios Tail",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Machalite Ore",
+          "rate": "35%"
+        },
+        {
+          "item": "Basarios Shell",
+          "rate": "15%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Machalite Ore",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Shell",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Pleura",
+          "rate": "20%",
+          "part": "Wyvern Riding"
         }
       ]
     },
@@ -12305,6 +16338,52 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Carbalite Ore",
+          "rate": "31%"
+        },
+        {
+          "item": "Basarios Carapace",
+          "rate": "15%"
+        },
+        {
+          "item": "Basarios Tears",
+          "rate": "3%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "30%"
+        },
+        {
+          "item": "Carbalite Ore",
+          "rate": "39%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Carapace",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Pleura+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Tears",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -12458,6 +16537,52 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Eltalite Ore",
+          "rate": "31%"
+        },
+        {
+          "item": "Basarios Cortex",
+          "rate": "15%"
+        },
+        {
+          "item": "Basarios Tears",
+          "rate": "3%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Wyvern Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Eltalite Ore",
+          "rate": "39%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Cortex",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Pectus+",
+          "rate": "20%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Basarios Tears",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -12606,6 +16731,39 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Amatsu Heavypleura",
+          "rate": "44%"
+        },
+        {
+          "item": "Amatsu Cortex",
+          "rate": "15%"
+        },
+        {
+          "item": "Heavenly Dragonsphire",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Amatsu Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Amatsu Heavypleura",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Amatsu Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -12737,6 +16895,39 @@ window.MONSTER_DROPS = [
           "rate": "20%",
           "part": "Wingarm x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Gore Magala Shard",
+          "rate": "34%"
+        },
+        {
+          "item": "Gore Magala Cortex",
+          "rate": "15%"
+        },
+        {
+          "item": "Gore Magala Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Gore Magala Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gore Magala Cortex",
+          "rate": "35%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Gore Magala Shredder",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -12855,27 +17046,38 @@ window.MONSTER_DROPS = [
       "drops": [
         {
           "item": "Malzeno Cortex",
-          "rate": "50%"
-        },
-        {
-          "item": "Old Dragon Treasure",
-          "rate": "40%"
-        },
-        {
-          "item": "Malzeno Shard",
-          "rate": "30%"
+          "rate": "27%"
         },
         {
           "item": "Bloody Parasite",
-          "rate": "20% x2"
+          "rate": "20%"
+        },
+        {
+          "item": "Malzeno Bloodstone",
+          "rate": "3%"
         },
         {
           "item": "Dragon Treasure",
           "rate": "10%"
         },
         {
-          "item": "Malzeno Bloodstone",
-          "rate": "3%"
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Malzeno Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Malzeno Shard",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Bloody Parasite",
+          "rate": "20% x2",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -12998,10 +17200,6 @@ window.MONSTER_DROPS = [
       ],
       "drops": [
         {
-          "item": "Old Dragon Treasure",
-          "rate": "40%"
-        },
-        {
           "item": "Abyssal Dragonscale",
           "rate": "34%"
         },
@@ -13012,6 +17210,10 @@ window.MONSTER_DROPS = [
         {
           "item": "Abyssal Dragonsphire",
           "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
         }
       ]
     }
@@ -13147,6 +17349,39 @@ window.MONSTER_DROPS = [
           "rate": "62%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Silver Rathalos Shard",
+          "rate": "55%"
+        },
+        {
+          "item": "Rathalos Ruby",
+          "rate": "4%"
+        },
+        {
+          "item": "Rathalos Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Silver Rathalos Shard",
+          "rate": "59%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Silver Rathalos Cortex",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Rathalos Ruby",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -13250,6 +17485,43 @@ window.MONSTER_DROPS = [
           "item": "Large Elder Dragon Gem",
           "rate": "4%",
           "part": "Horn"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Chameleos Finehide",
+          "rate": "30%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Ultimas Crystal",
+          "rate": "14%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Chameleos Finehide",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Chameleos Hardclaw",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "20%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -13365,6 +17637,40 @@ window.MONSTER_DROPS = [
           "item": "Large Beast Gem",
           "rate": "5%",
           "part": "Head"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Orangaten Fur+",
+          "rate": "39%"
+        },
+        {
+          "item": "Orangaten Tailcase+",
+          "rate": "10%"
+        },
+        {
+          "item": "Large Beast Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Beast Tear",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Beast Tear",
+          "rate": "35%"
+        },
+        {
+          "item": "Orangaten Fur+",
+          "rate": "50%"
+        },
+        {
+          "item": "Orangaten Feather+",
+          "rate": "35%"
+        },
+        {
+          "item": "Orangaten Tailcase+",
+          "rate": "15%"
         }
       ]
     }
@@ -13512,6 +17818,43 @@ window.MONSTER_DROPS = [
           "rate": "1%",
           "part": "Chest"
         }
+      ],
+      "drops": [
+        {
+          "item": "Seething Crimson Liquid",
+          "rate": "32%"
+        },
+        {
+          "item": "Glittering Shell",
+          "rate": "24%"
+        },
+        {
+          "item": "Red Dragon Orb",
+          "rate": "3%"
+        },
+        {
+          "item": "Red Dragonsphire",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Seething Crimson Liquid",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Glittering Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Shimmering Shard",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -13653,6 +17996,48 @@ window.MONSTER_DROPS = [
           "rate": "12%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Flaming Espinas Shard",
+          "rate": "38%"
+        },
+        {
+          "item": "Flaming Espinas Cortex",
+          "rate": "18%"
+        },
+        {
+          "item": "Flaming Espinas Surspike",
+          "rate": "3%"
+        },
+        {
+          "item": "Flaming Espinas Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Flaming Espinas Shard",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Flaming Espinas Cortex",
+          "rate": "34%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Flaming Espinas Sulfur",
+          "rate": "15%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Flaming Espinas Surspike",
+          "rate": "1%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -13787,6 +18172,44 @@ window.MONSTER_DROPS = [
           "rate": "10%",
           "part": "Forelegs x2"
         }
+      ],
+      "drops": [
+        {
+          "item": "Inferno Lava Mud",
+          "rate": "30%"
+        },
+        {
+          "item": "Magmadron Shard",
+          "rate": "19%"
+        },
+        {
+          "item": "Magmadron Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Inferno Lava Mud",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magmadron Shard",
+          "rate": "37%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magmadron Cortex",
+          "rate": "28%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magmadron Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -13912,6 +18335,35 @@ window.MONSTER_DROPS = [
           "rate": "20%",
           "part": "Head"
         }
+      ],
+      "drops": [
+        {
+          "item": "Pyre-Kadaki Silk+",
+          "rate": "40%"
+        },
+        {
+          "item": "Pyre-Kadaki Spike+",
+          "rate": "10%"
+        },
+        {
+          "item": "Queen Substance",
+          "rate": "50%"
+        },
+        {
+          "item": "Pyre-Kadaki Silk+",
+          "rate": "30% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pyre-Kadaki Cortex",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pyre-Kadaki Spike+",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -14008,6 +18460,43 @@ window.MONSTER_DROPS = [
           "item": "Shimmering Shard",
           "rate": "78%",
           "part": "Chest"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Seething Crimson Liquid",
+          "rate": "32%"
+        },
+        {
+          "item": "Glittering Shell",
+          "rate": "24%"
+        },
+        {
+          "item": "Red Dragon Orb",
+          "rate": "3%"
+        },
+        {
+          "item": "Red Dragonsphire",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Seething Crimson Liquid",
+          "rate": "25% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Glittering Shell",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Shimmering Shard",
+          "rate": "25%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -14107,6 +18596,39 @@ window.MONSTER_DROPS = [
           "item": "Teostra Fellwing",
           "rate": "80%",
           "part": "Wingclaw"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Teostra Cortex",
+          "rate": "42%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "17%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Teostra Cortex",
+          "rate": "45%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Hellfire Shard",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -14237,6 +18759,40 @@ window.MONSTER_DROPS = [
           "item": "Magnamalo Tail+",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Magna Barrierprism",
+          "rate": "30%"
+        },
+        {
+          "item": "Begrudged Rancorscale",
+          "rate": "20%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Begrudged Rancorscale",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magna Armored Cortex",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Magna Barrierprism",
+          "rate": "20% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Moaning Bladeshell",
+          "rate": "10%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -14399,6 +18955,30 @@ window.MONSTER_DROPS = [
           "rate": "75%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Mizutsune Scale+",
+          "rate": "58%"
+        },
+        {
+          "item": "Mizutsune Water Orb",
+          "rate": "2%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Mizutsune Scale+",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Purplefur+",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -14540,6 +19120,30 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Mizutsune Shard",
+          "rate": "58%"
+        },
+        {
+          "item": "Mizutsune Mantle",
+          "rate": "2%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Mizutsune Shard",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Mizutsune Purplefell",
+          "rate": "40%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -14657,6 +19261,48 @@ window.MONSTER_DROPS = [
           "item": "Daora Lash",
           "rate": "80%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Daora Cortex",
+          "rate": "34%"
+        },
+        {
+          "item": "Daora Hardclaw",
+          "rate": "10%"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%"
+        },
+        {
+          "item": "Large Elder Dragon Gem",
+          "rate": "1%"
+        },
+        {
+          "item": "Old Dragon Treasure",
+          "rate": "40%"
+        },
+        {
+          "item": "Daora Cortex",
+          "rate": "50%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Shard",
+          "rate": "25%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Daora Hardclaw",
+          "rate": "10%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Pure Dragon Blood",
+          "rate": "15%",
+          "part": "Wyvern Riding"
         }
       ]
     }
@@ -14828,6 +19474,39 @@ window.MONSTER_DROPS = [
           "rate": "80%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "White Synovial Fluid",
+          "rate": "40%"
+        },
+        {
+          "item": "Violet Mizu Shard",
+          "rate": "19%"
+        },
+        {
+          "item": "Violet Mizu Mantle",
+          "rate": "1%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "White Synovial Fluid",
+          "rate": "26% x2",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Violet Mizu Shard",
+          "rate": "44%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Violet Mizu Whitefell",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     }
   },
@@ -14946,6 +19625,34 @@ window.MONSTER_DROPS = [
           "rate": "70%",
           "part": "Tail"
         }
+      ],
+      "drops": [
+        {
+          "item": "Diablos Carapace",
+          "rate": "38%"
+        },
+        {
+          "item": "Diablos Ridge+",
+          "rate": "20%"
+        },
+        {
+          "item": "Wyvern Gem",
+          "rate": "2%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "40%"
+        },
+        {
+          "item": "Diablos Carapace",
+          "rate": "70%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Diablos Ridge+",
+          "rate": "30%",
+          "part": "Wyvern Riding"
+        }
       ]
     },
     "masterRank": {
@@ -15028,6 +19735,34 @@ window.MONSTER_DROPS = [
           "item": "Diablos Tailcase+",
           "rate": "70%",
           "part": "Tail"
+        }
+      ],
+      "drops": [
+        {
+          "item": "Diablos Cortex",
+          "rate": "25%"
+        },
+        {
+          "item": "Diablos Chine",
+          "rate": "22%"
+        },
+        {
+          "item": "Large Wyvern Gem",
+          "rate": "3%"
+        },
+        {
+          "item": "Large Wyvern Tear",
+          "rate": "50%"
+        },
+        {
+          "item": "Diablos Cortex",
+          "rate": "60%",
+          "part": "Wyvern Riding"
+        },
+        {
+          "item": "Diablos Chine",
+          "rate": "40%",
+          "part": "Wyvern Riding"
         }
       ]
     }

@@ -578,6 +578,7 @@ select:focus, .search-input:focus { border-color: var(--accent); }
 .drop-table-wrap { overflow-x: auto; }
 .drop-table {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
   font-size: 12.5px;
 }
@@ -591,7 +592,8 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   font-size: 10px;
   font-weight: 600;
   text-align: left;
-  white-space: nowrap;
+  line-height: 1.35;
+  white-space: normal;
 }
 .drop-table td {
   padding: 9px 14px;
