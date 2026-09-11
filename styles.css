@@ -651,6 +651,39 @@ select:focus, .search-input:focus { border-color: var(--accent); }
   font-weight: 400;
 }
 
+/* Section label: same small-caps pattern used for "Showing", "Recommended
+   Element", etc. — keeps a subsection heading visually consistent with the
+   rest of a result card instead of introducing a new heading style. */
+.section-label {
+  display: block;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.monster-locations {
+  padding: 16px 24px 18px;
+  border-top: 1px solid var(--line-strong);
+}
+.locations-list { margin: 10px 0 0; }
+.location-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.location-row:first-child { border-top: 0; padding-top: 2px; }
+.location-row dt { font-weight: 600; }
+.location-row dd { margin: 0; }
+.location-row small { display: block; color: var(--muted); font-size: 13px; }
+.locations-note { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
 /* Shrink the table's type and padding on narrow screens so all six columns
    keep fitting side by side, with cell text wrapping instead of scrolling. */
 @media (max-width: 760px) {

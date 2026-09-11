@@ -785,7 +785,34 @@ function dropCard(monster) {
         </div>
       </div>
       ${rows.length ? dropTable(categories, rows) : '<div class="empty"><strong>No reward data yet</strong><span>This rank hasn\'t been added yet.</span></div>'}
+      ${smallMonsterLocations(monster, rank)}
     </article>
+  `;
+}
+
+function smallMonsterLocations(monster, rank) {
+  const habitat = window.SMALL_MONSTER_LOCATIONS?.[monster.id];
+  if (!habitat) return '';
+  const locations = habitat.locations.filter(location =>
+    rank === 'masterRank' || !['Jungle', 'Citadel'].includes(location.map));
+  if (!locations.length) return '';
+  return `
+    <section class="monster-locations" aria-labelledby="locationsHeading">
+      <span class="section-label" id="locationsHeading">Known Locations</span>
+      <dl class="locations-list">
+        ${locations.map(location => `
+          <div class="location-row">
+            <dt>${escapeHtml(location.map)}</dt>
+            <dd>
+              <span>${location.areas.length === 1 ? 'Area' : 'Areas'} ${location.areas.join(', ')}</span>
+              ${location.detail ? `<small>${escapeHtml(location.detail)}</small>` : ''}
+              ${location.outbreakAreas ? `<small>${escapeHtml(location.outbreak)} outbreak: also ${location.outbreakAreas.length === 1 ? 'Area' : 'Areas'} ${location.outbreakAreas.join(', ')}</small>` : ''}
+            </dd>
+          </div>
+        `).join('')}
+      </dl>
+      <p class="locations-note">Spawns vary by quest and outbreak.</p>
+    </section>
   `;
 }
 

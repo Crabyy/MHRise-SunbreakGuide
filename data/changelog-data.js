@@ -1,5 +1,12 @@
 window.APP_CHANGELOG = [
   {
+    "version": "v1.22",
+    "changes": [
+      "Small Monsters now shows known locations beneath the reward table, including map names, numbered areas, and extra outbreak areas.",
+      "Small changes."
+    ]
+  },
+  {
     "version": "v1.21",
     "changes": [
       "Added all 34 small monsters with rank-specific rewards, carves, and dropped materials.",

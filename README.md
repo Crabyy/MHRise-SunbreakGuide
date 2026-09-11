@@ -1,6 +1,6 @@
 # MHRise: Sunbreak Guide
 
-**Version: v1.21** · Author: [Craby](https://github.com/Crabyy)
+**Version: v1.22** · Author: [Craby](https://github.com/Crabyy)
 
 A personal Monster Hunter Rise: Sunbreak reference web app. It answers three questions fast:
 
@@ -18,6 +18,7 @@ A personal Monster Hunter Rise: Sunbreak reference web app. It answers three que
 - Afflicted material database with tier filter (A1–A9) and live search
 - Material pinning with per-material "amount needed" stepper; pinned items move to a dedicated Pinned section
 - Monster Drops: per-rank reward tables with percentages, filterable by rank (same pill-filter pattern as Afflicted Materials' tier filter); handles monsters that only exist in certain ranks and monsters that cannot be captured; includes Dropped Materials; excludes afflicted/anomaly investigation materials because those live in the Afflicted Materials tab; search matches monster names or material names
+- Small-monster location reference below reward tables, with map names, numbered areas, and additional outbreak areas
 - In-app Changelog page under App, driven by `data/changelog-data.js`
 - Ctrl/Cmd+F focuses the current page's in-app search box when one is available
 - Light and dark themes (follows system preference, toggleable, remembered)
@@ -38,6 +39,7 @@ Plain static site — HTML + CSS + vanilla JavaScript. No framework, no dependen
 | `data/changelog-data.js` | Version history shown on the in-app Changelog page (`window.APP_CHANGELOG`) |
 | `data/drops-data.js` | Monster Drops reward tables (`window.MONSTER_DROPS`) — see schema notes in the file header |
 | `data/small-drops-data.js` | Small-monster reward tables (`window.SMALL_MONSTER_DROPS`), with per-monster source URLs and the same reward schema as large monsters |
+| `data/small-locations-data.js` | Documented small-monster hunting spots (`window.SMALL_MONSTER_LOCATIONS`), including source references, map names, areas, and outbreak additions |
 | `data/monster-order.js` | Canonical monster display order (`window.MONSTER_ORDER`) used to sort the Monster Matchups and Monster Drops lists |
 
 ## Run locally
@@ -54,6 +56,11 @@ python -m http.server 8613
 
 Deployed on **Vercel** from this repository: framework preset **Other**, no build command, output directory = repo root. Every push to `main` auto-deploys.
 
+## Working Rules
+
+- Read this README in full before every task. This rule is also recorded in `AGENTS.md` for future agents.
+- Keep changes local unless the user explicitly asks to push or deploy.
+
 ## Versioning & changelog policy
 
 This project keeps two changelogs on purpose, and they are not meant to match line-for-line:
@@ -67,6 +74,15 @@ This project keeps two changelogs on purpose, and they are not meant to match li
 If you're an AI agent picking up this repo: read this section before touching `data/changelog-data.js` or the "Version" line at the top of this README, and apply the same judgment call above rather than defaulting to a new version entry for every change.
 
 ## Changelog
+
+### v1.22
+- Added a **Known Locations** section beneath the reward table for every small monster, in the space shown in the user's reference. Shows map names and numbered areas, with useful elevation details where documented.
+- Location data covers all **34 small monsters** with sourced hunting spots (source kept in `data/small-locations-data.js` for provenance, not shown in the UI — see below). This is a curated finding guide, not a claim to list every quest-specific spawn or every habitat. Numbered areas come from Game8's monster/location guides and the linked Gamestegy Felyne guide.
+- Additional outbreak areas are labeled separately from the usual areas. A short note explains that spawns vary by quest and outbreak. Where Game8's general habitat summary and detailed normal-quest table differ, the detailed table is preferred; Zamite outbreak areas use the Supple Piel guide, avoiding the invalid "Area 20" typo in the older monster guide.
+- Jungle and Citadel spots are hidden in Low/High Rank. Locations refresh together with the selected small monster through list clicks, search, and rank changes; large-monster reward cards have no location section.
+- Recorded the user's requirement to read README before every task and the explicit-push-only rule in the project instructions.
+- Reworked the Known Locations UI per Craby's feedback that the first pass didn't fit the app's look: it was a bare, unframed block sitting below the reward card with no border or background, so it read as unstyled/floating rather than part of the page. It's now inside the same `.result-card` as the reward table (a bordered top-divider section, matching how the Weapon Matchups card appends its note), and its heading uses the app's existing small-caps "section label" style (the same pattern as "Showing" / "Recommended Element") instead of a one-off `<h3>`.
+- Removed the "Source" link from the Known Locations heading — it wasn't useful to hunters using the page, so the section is now just the label and the location list.
 
 ### v1.21
 - Added separate **Large Monsters / Small Monsters** controls within **Monster Drops**, above the existing rank filters. Large monsters retain their game-progression order; small monsters are alphabetical.
