@@ -1,12 +1,12 @@
 # MHRise: Sunbreak Guide
 
-**Version: v1.20** · Author: [Craby](https://github.com/Crabyy)
+**Version: v1.21** · Author: [Craby](https://github.com/Crabyy)
 
 A personal Monster Hunter Rise: Sunbreak reference web app. It answers three questions fast:
 
 1. **Monster Matchups** — for a given monster, which weapon build to bring for **Dual Blades**, **Spread Bow**, or **rapid-fire elemental Light Bowgun**: recommended element, weapon, rampage decoration, priority hit zones, and (for LBG) ammo and handling skills.
 2. **Afflicted Materials** — which anomaly materials drop from which monsters, the best farm target for each, and the anomaly level range. Materials can be **pinned** with an "amount needed" counter to use as a farming checklist.
-3. **Monster Drops** — per-monster reward tables (Target/Capture/Carving/Broken Parts merged into one compact list per material) with drop-rate percentages, filterable by Low Rank / High Rank / Master Rank exactly like the Afflicted Materials tier filter. Search by monster *or* material name. **Complete for all 78 large monsters.**
+3. **Monster Drops** — separate **Large Monsters / Small Monsters** views under one tab, with per-monster reward tables (Target/Capture/Broken Parts/Carves/Dropped Materials merged into one compact list per material). Filter by Low Rank / High Rank / Master Rank and search by monster *or* material name. Covers **78 large monsters and all 34 small monsters**.
 
 > Monster Hunter Rise: Sunbreak © Capcom. This is an unofficial fan-made reference.
 
@@ -37,6 +37,7 @@ Plain static site — HTML + CSS + vanilla JavaScript. No framework, no dependen
 | `data/materials-data.js` | Afflicted material data (`window.afflictedMaterials`) |
 | `data/changelog-data.js` | Version history shown on the in-app Changelog page (`window.APP_CHANGELOG`) |
 | `data/drops-data.js` | Monster Drops reward tables (`window.MONSTER_DROPS`) — see schema notes in the file header |
+| `data/small-drops-data.js` | Small-monster reward tables (`window.SMALL_MONSTER_DROPS`), with per-monster source URLs and the same reward schema as large monsters |
 | `data/monster-order.js` | Canonical monster display order (`window.MONSTER_ORDER`) used to sort the Monster Matchups and Monster Drops lists |
 
 ## Run locally
@@ -66,6 +67,16 @@ This project keeps two changelogs on purpose, and they are not meant to match li
 If you're an AI agent picking up this repo: read this section before touching `data/changelog-data.js` or the "Version" line at the top of this README, and apply the same judgment call above rather than defaulting to a new version entry for every change.
 
 ## Changelog
+
+### v1.21
+- Added separate **Large Monsters / Small Monsters** controls within **Monster Drops**, above the existing rank filters. Large monsters retain their game-progression order; small monsters are alphabetical.
+- Added all **34 small monsters**, covering **86 monster/rank tables** and **499 reward entries**, sourced from [Kiranico's Ver16.0.0 small-monster database](https://mhrise.kiranico.com/data/monsters?view=sm). The eight Sunbreak-only species (Boggi, Ceanataur, Gowngoat, Hermitaur, Hornetaur, Pyrantula, Velociprey, Vespoid) appear only in Master Rank.
+- Both groups share the existing five reward columns, including empty Capture and Broken Part columns where unavailable. Material names, rates, quantities, carve parts, and distinct dropped-material pools are preserved; identical duplicate source entries are collapsed.
+- Normalized special small-monster drops: Altaroth feeding pools and Gargwa egg pools replace the source's misleading generic "Wyvern Riding" labels. These percentages describe rewards within a drop pool, not the chance of triggering that pool. Felyne and Melynx show their dropped materials, excluding unused carve pools. Cross-checked with [Altaroth](https://game8.co/games/Monster-Hunter-Rise/archives/316139), [Gargwa](https://game8.co/games/Monster-Hunter-Rise/archives/316135), and [Melynx](https://game8.co/games/Monster-Hunter-Rise/archives/316132) references.
+- Search is limited to the selected monster group and rank, preserving the query when switching groups. An unmatched search shows an empty result instead of another group's monster. Ctrl/Cmd+F continues to focus the search field.
+- Saved the selected group and each group's monster independently in localStorage, preserving existing large-monster selections. The shared rank filter remains selected when switching groups.
+- Removed the "X of Y monsters added" progress line above the rank filters on both Large and Small Monsters — with the new group toggle above it, that line had a leftover `-12px` top margin (left over from when it sat directly under the page heading's border) that made it overlap the button row by 12px. Rather than just patch the margin, removed the line entirely: both datasets are complete, so it wasn't telling the hunter anything actionable.
+- Reworked the Monster Drops table's column widths: they were six equal-width columns, which squeezed the small-monster dataset's longer combined labels (e.g. "10% · Mushroom-fed", "25% · Material drop") into awkward multi-line wraps. Capture Rewards and Broken Part Rewards (usually just a dash) are now narrower, and Carves / Dropped Materials (usually the longest text) are wider, on both datasets.
 
 ### v1.20
 - Added a standalone **Home** tab with a simple welcome, creator credit, and Capcom/unofficial fan-reference disclaimer.

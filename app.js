@@ -17,6 +17,7 @@ function byMonsterOrder(a, b) { return monsterOrderIndex(a.name) - monsterOrderI
 
 data.monsters.sort(byMonsterOrder);
 const drops = (window.MONSTER_DROPS || []).slice().sort(byMonsterOrder);
+const smallDrops = (window.SMALL_MONSTER_DROPS || []).slice().sort((a, b) => a.name.localeCompare(b.name));
 const savedView = localStorage.getItem('shg_view');
 let currentView = ['home', 'matchups', 'materials', 'changelog', 'drops'].includes(savedView) ? savedView : 'home';
 
@@ -31,7 +32,8 @@ const savedMonster = localStorage.getItem('shg_monster');
 const savedElement = localStorage.getItem('shg_element');
 const savedTier = localStorage.getItem('shg_tier');
 const savedMaterial = localStorage.getItem('shg_material');
-const savedDropMonster = localStorage.getItem('shg_dropMonster');
+const savedDropGroup = localStorage.getItem('shg_dropGroup');
+const savedDropMonster = localStorage.getItem(savedDropGroup === 'small' ? 'shg_smallDropMonster' : 'shg_dropMonster');
 const savedDropRank = localStorage.getItem('shg_dropRankFilter');
 
 const state = {
@@ -43,12 +45,13 @@ const state = {
   materialTier: /^A[1-9]$/.test(savedTier || '') ? savedTier : 'All',
   selectedMaterialName: null,
   dropsSearch: '',
+  dropGroup: savedDropGroup === 'small' ? 'small' : 'large',
   selectedDropId: null,
   dropRankFilter: ['lowRank', 'highRank', 'masterRank'].includes(savedDropRank) ? savedDropRank : 'lowRank',
   pins: loadPins()
 };
 state.selectedMaterialName = materials.some(m => m.material === savedMaterial) ? savedMaterial : null;
-state.selectedDropId = drops.some(m => m.id === savedDropMonster) ? savedDropMonster : null;
+state.selectedDropId = activeDrops().some(m => m.id === savedDropMonster) ? savedDropMonster : null;
 
 function loadPins() {
   try {
@@ -588,6 +591,14 @@ const RANK_LABELS = { lowRank: 'Low Rank', highRank: 'High Rank', masterRank: 'M
 const DROP_SECTION_KEYS = ['target', 'capture', 'breaks', 'carve', 'drops'];
 const AFFLICTED_DROP_NAMES = new Set(materials.map(material => material.material));
 
+function activeDrops() {
+  return state.dropGroup === 'small' ? smallDrops : drops;
+}
+
+function dropSelectionStorageKey() {
+  return state.dropGroup === 'small' ? 'shg_smallDropMonster' : 'shg_dropMonster';
+}
+
 function isAfflictedDropEntry(entry) {
   return AFFLICTED_DROP_NAMES.has(entry.item) ||
     entry.item.startsWith('Afflicted ') ||
@@ -612,20 +623,20 @@ function firstMatchingItem(monster, query, rankFilter = null) {
 
 function dropsFiltered() {
   const query = (state.dropsSearch || '').trim().toLowerCase();
-  return drops.filter(m => {
+  return activeDrops().filter(m => {
     if (!m.order.includes(state.dropRankFilter)) return false;
     return !query || m.name.toLowerCase().includes(query) || firstMatchingItem(m, query, state.dropRankFilter);
   });
 }
 
 function ensureSelectedDropMatchesFilter() {
-  const selected = drops.find(m => m.id === state.selectedDropId);
+  const selected = activeDrops().find(m => m.id === state.selectedDropId);
   if (selected && selected.order.includes(state.dropRankFilter)) return;
 
-  const replacement = drops.find(m => m.order.includes(state.dropRankFilter));
+  const replacement = activeDrops().find(m => m.order.includes(state.dropRankFilter));
   if (replacement) {
     state.selectedDropId = replacement.id;
-    localStorage.setItem('shg_dropMonster', replacement.id);
+    localStorage.setItem(dropSelectionStorageKey(), replacement.id);
   }
 }
 
@@ -633,17 +644,11 @@ function activeDropRank(monster) {
   return monster.order.includes(state.dropRankFilter) ? state.dropRankFilter : monster.order[0];
 }
 
-function dropsProgressText() {
-  const total = data.monsters.length;
-  if (drops.length >= total) return `${total} of ${total} large monsters added.`;
-  return `${drops.length} of ${total} large monsters added so far - more coming soon.`;
-}
-
 function renderDrops() {
   const filtered = dropsFiltered();
   const selected = filtered.find(m => m.id === state.selectedDropId) || filtered[0] || null;
   state.selectedDropId = selected ? selected.id : null;
-  if (state.selectedDropId) localStorage.setItem('shg_dropMonster', state.selectedDropId);
+  if (state.selectedDropId) localStorage.setItem(dropSelectionStorageKey(), state.selectedDropId);
   const prevScroll = document.querySelector('#dropsList')?.scrollTop || 0;
 
   app.innerHTML = `
@@ -652,9 +657,12 @@ function renderDrops() {
         <span class="eyebrow">Hunter's Notes</span>
         <h1>Monster Drops</h1>
       </div>
-      <input id="dropsSearch" class="search-input" type="search" placeholder="Search monster or material..." value="${escapeHtml(state.dropsSearch)}">
+      <input id="dropsSearch" class="search-input" type="search" aria-label="Search ${state.dropGroup} monsters or materials" placeholder="Search monster or material..." value="${escapeHtml(state.dropsSearch)}">
     </section>
-    <p class="drops-progress">${dropsProgressText()}</p>
+    <div class="drop-group-filter" role="group" aria-label="Monster size">
+      <button type="button" data-drop-group="large" aria-pressed="${state.dropGroup === 'large'}">Large Monsters</button>
+      <button type="button" data-drop-group="small" aria-pressed="${state.dropGroup === 'small'}">Small Monsters</button>
+    </div>
     <div class="tier-filter">
       ${['lowRank', 'highRank', 'masterRank'].map(r => `
         <button class="${state.dropRankFilter === r ? 'active' : ''}" data-drop-rank="${r}">${RANK_LABELS[r]}</button>
@@ -662,7 +670,7 @@ function renderDrops() {
     </div>
     <section class="matchup-layout">
       <aside class="monster-panel">
-        <div class="list-meta"><strong>Monster</strong></div>
+        <div class="list-meta"><strong>${state.dropGroup === 'small' ? 'Small Monsters' : 'Large Monsters'}</strong></div>
         <div class="monster-list" id="dropsList">
           ${filtered.length ? filtered.map(m => dropMonsterRow(m, selected)).join('') : emptyList('No drops found', 'Try a different search or rank.')}
         </div>
@@ -681,6 +689,14 @@ function renderDrops() {
     state.dropsSearch = e.target.value;
     renderDropsListOnly();
   });
+  document.querySelectorAll('[data-drop-group]').forEach(button => button.addEventListener('click', () => {
+    state.dropGroup = button.dataset.dropGroup;
+    localStorage.setItem('shg_dropGroup', state.dropGroup);
+    state.selectedDropId = localStorage.getItem(dropSelectionStorageKey());
+    renderDrops();
+    document.querySelector('#dropsList').scrollTop = 0;
+    document.querySelector(`[data-drop-group="${state.dropGroup}"]`).focus();
+  }));
   document.querySelectorAll('[data-drop-rank]').forEach(b => b.addEventListener('click', () => {
     state.dropRankFilter = b.dataset.dropRank;
     localStorage.setItem('shg_dropRankFilter', state.dropRankFilter);
@@ -696,7 +712,7 @@ function renderDropsListOnly() {
   const filtered = dropsFiltered();
   const selected = filtered.find(m => m.id === state.selectedDropId) || filtered[0] || null;
   state.selectedDropId = selected ? selected.id : null;
-  if (state.selectedDropId) localStorage.setItem('shg_dropMonster', state.selectedDropId);
+  if (state.selectedDropId) localStorage.setItem(dropSelectionStorageKey(), state.selectedDropId);
   list.innerHTML = filtered.length ? filtered.map(m => dropMonsterRow(m, selected)).join('') : emptyList('No drops found', 'Try a different search or rank.');
   document.querySelector('#dropsResult').innerHTML = selected ? dropCard(selected) : emptyList('No drops selected', 'Try a different search or rank.');
   wireDropRows(list);
@@ -705,8 +721,8 @@ function renderDropsListOnly() {
 function wireDropRows(scope) {
   scope.querySelectorAll('[data-drop-id]').forEach(b => b.addEventListener('click', () => {
     state.selectedDropId = b.dataset.dropId;
-    localStorage.setItem('shg_dropMonster', state.selectedDropId);
-    const chosen = drops.find(m => m.id === state.selectedDropId);
+    localStorage.setItem(dropSelectionStorageKey(), state.selectedDropId);
+    const chosen = activeDrops().find(m => m.id === state.selectedDropId);
     document.querySelectorAll('[data-drop-id]').forEach(item => {
       item.classList.toggle('active', item.dataset.dropId === state.selectedDropId);
     });

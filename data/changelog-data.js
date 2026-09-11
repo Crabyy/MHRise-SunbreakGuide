@@ -1,5 +1,14 @@
 window.APP_CHANGELOG = [
   {
+    "version": "v1.21",
+    "changes": [
+      "Added all 34 small monsters with rank-specific rewards, carves, and dropped materials.",
+      "Monster Drops now has separate Large Monsters and Small Monsters views, with search and rank filters in both.",
+      "Your monster group and each group's selected monster are remembered.",
+      "Small changes."
+    ]
+  },
+  {
     "version": "v1.20",
     "changes": [
       "Added a standalone Home tab with a simple welcome, creator credit, and unofficial fan-reference disclaimer.",
