@@ -132,16 +132,7 @@ function filteredMonsters() {
   const query = state.search.trim().toLowerCase();
   return data.monsters.filter(monster => {
     const matchup = matchupFor(monster);
-    const haystack = [
-      monster.name,
-      matchup.weapon,
-      matchup.element,
-      matchup.rampage || '',
-      matchup.ammo || '',
-      matchup.type || ''
-    ].join(' ').toLowerCase();
-
-    return (!query || haystack.includes(query)) &&
+    return (!query || monster.name.toLowerCase().includes(query)) &&
       (state.element === 'All' || matchup.element === state.element);
   });
 }
@@ -192,7 +183,7 @@ function render() {
             `).join('')}
           </select>
         </div>
-        <input id="search" class="search-input" type="search" placeholder="Search monster, weapon, ammo…" value="${escapeHtml(state.search)}" />
+        <input id="search" class="search-input" type="search" placeholder="Search monster…" value="${escapeHtml(state.search)}" />
       </div>
     </section>
 
